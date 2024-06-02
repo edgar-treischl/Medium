@@ -1,0 +1,27 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Medium Articles"
+  author: "Edgar J. Treischl"
+  date: last-modified
+  chapters:
+    - index.qmd
+    - 01_scan.qmd
+    - 02_master_sql.qmd
+    - references.qmd
+
+bibliography: references.bib
+cover-image: cover.png
+
+format:
+  html:
+    theme: litera
+    include-in-header: 
+      - progress-bar.html
+  pdf:
+    documentclass: scrreprt
+
+
+
