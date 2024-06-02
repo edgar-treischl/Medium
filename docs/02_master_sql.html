@@ -83,7 +83,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./03_ggplot2_ext.html" rel="next">
 <link href="./01_scan.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -189,6 +189,12 @@ document.addEventListener("DOMContentLoaded", function() {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./03_ggplot2_ext.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ten additional geoms for ggplot2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -254,8 +260,8 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </div>
 <p>The <code>sqldf</code> package makes it very convenient to run a few SQL snippets and the package outlines how we interact with different SQL databases in its documentation: ” <code>sqldf()</code> transparently sets up a database, imports the data frames into that database, performs the SQL select or other statement and returns the result using a heuristic to determine which class to assign to each column of the returned data frame” <span class="citation" data-cites="sqldf">(<a href="references.html#ref-sqldf" role="doc-biblioref">Grothendieck 2017</a>)</span>.</p>
-<p>Again, there is no need to establish a real database in the beginning, we can make use of the <em>local memory</em> to simulate a database, save a table (data frame) and run SQL commands directly as a code chunk from the R script exactly as the <code>sqldf</code> package does. The <code>RSQLite</code> package helps us with this task, it creates the SQLite database on your local machine <span class="citation" data-cites="RSQLite">(<a href="references.html#ref-RSQLite" role="doc-biblioref">Müller et al. 2023</a>)</span>. With this approach, it is almost like if we work with a real database, but it is still very convenient for beginners. To do so, we need to establish a connection to the database and this code chunk will also work as a template in the near future when you switch from the local to the real database.</p>
-<p>How do we connect R with a database? Use the <code>DBI</code> package to connect to many different databases <span class="citation" data-cites="DBI">(<a href="references.html#ref-DBI" role="doc-biblioref">Wickham and Müller 2022</a>)</span>. In a nutshell, we need to establish a connection (<code>con</code>) with the <code>dbConnect()</code> function. This implies that we need to pick a driver (<code>drv</code>) to connect to a specific database (e.g., <code>RMariaDB::MariaDB()</code> for MariaDB; or <code>RSQLServer::SQLServer</code> for Postgres, etc.); furthermore, we need to provide the properties needed to get access to the database (e.g., host, username, etc.).</p>
+<p>Again, there is no need to establish a real database in the beginning, we can make use of the <em>local memory</em> to simulate a database, save a table (data frame) and run SQL commands directly as a code chunk from the R script exactly as the <code>sqldf</code> package does. The <code>RSQLite</code> package helps us with this task, it creates the SQLite database on your local machine <span class="citation" data-cites="RSQLite">(<a href="references.html#ref-RSQLite" role="doc-biblioref">Müller et al. 2022</a>)</span>. With this approach, it is almost like if we work with a real database, but it is still very convenient for beginners. To do so, we need to establish a connection to the database and this code chunk will also work as a template in the near future when you switch from the local to the real database.</p>
+<p>How do we connect R with a database? Use the <code>DBI</code> package to connect to many different databases <span class="citation" data-cites="DBI">(<a href="references.html#ref-DBI" role="doc-biblioref">R Special Interest Group on Databases (R-SIG-DB), Wickham, and Müller 2022</a>)</span>. In a nutshell, we need to establish a connection (<code>con</code>) with the <code>dbConnect()</code> function. This implies that we need to pick a driver (<code>drv</code>) to connect to a specific database (e.g., <code>RMariaDB::MariaDB()</code> for MariaDB; or <code>RSQLServer::SQLServer</code> for Postgres, etc.); furthermore, we need to provide the properties needed to get access to the database (e.g., host, username, etc.).</p>
 <p>The <code>DBI</code> package gives us the code to illustrate this step with a <code>guest</code> account for a <code>MariaDB</code> database.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Establish a connection</span></span>
@@ -314,7 +320,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </section>
 <section id="the-dbplyr-package" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="the-dbplyr-package"><span class="header-section-number">2.2</span> The dbplyr package</h2>
-<p>As outlined on the package website: “<code>dbplyr</code> is the database backend for dplyr <span class="citation" data-cites="dbplyr">(<a href="references.html#ref-dbplyr" role="doc-biblioref">Wickham, Girlich, and Ruiz 2023</a>)</span>. It allows you to use remote database tables as if they are in-memory data frames by automatically converting dplyr code into SQL.” Thus, we can apply common dplyr verbs to SQL databases. First, we need to create a table from a database with the <code>tbl()</code> function.</p>
+<p>As outlined on the package website: “<code>dbplyr</code> is the database backend for dplyr <span class="citation" data-cites="dbplyr">(<a href="references.html#ref-dbplyr" role="doc-biblioref">Wickham, Girlich, and Ruiz 2022</a>)</span>. It allows you to use remote database tables as if they are in-memory data frames by automatically converting dplyr code into SQL.” Thus, we can apply common dplyr verbs to SQL databases. First, we need to create a table from a database with the <code>tbl()</code> function.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a table from the database</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
@@ -322,7 +328,7 @@ document.addEventListener("DOMContentLoaded", function() {
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>mtcars_db <span class="ot">&lt;-</span> <span class="fu">tbl</span>(con, <span class="st">"mtcars"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Let us go back to example SQL code snippet. Suppose we didn’t know how to select and calculate the mean in SQL. There are several ways to calculate it with R, but the <code>tidyverse</code> approach is not difficult <span class="citation" data-cites="tidyverse">(<a href="references.html#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>; and it let us apply our <code>dplyr</code> knowledge thanks to the <code>dbplyr</code> package. The <code>summarise()</code> function collapses the data and we get the <code>mean()</code> by including it in the latter step, however, only if we run the code locally.</p>
+<p>Let us go back to example SQL code snippet. Suppose we didn’t know how to select and calculate the mean in SQL. There are several ways to calculate it with R, but the <code>tidyverse</code> approach is not difficult <span class="citation" data-cites="tidyverse">(<a href="references.html#ref-tidyverse" role="doc-biblioref">Wickham 2022</a>)</span>; and it let us apply our <code>dplyr</code> knowledge thanks to the <code>dbplyr</code> package. The <code>summarise()</code> function collapses the data and we get the <code>mean()</code> by including it in the latter step, however, only if we run the code locally.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Get mean with dplyr (locally)</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">|&gt;</span> </span>
@@ -422,19 +428,19 @@ Csárdi, Gábor. 2022. <span>“Keyring: Access the System Credential Store from
 Grothendieck, G. 2017. <span>“Sqldf: Manipulate r Data Frames Using SQL.”</span> <a href="https://CRAN.R-project.org/package=sqldf">https://CRAN.R-project.org/package=sqldf</a>.
 </div>
 <div id="ref-RSQLite" class="csl-entry" role="listitem">
-Müller, Kirill, Hadley Wickham, David A. James, and Seth Falcon. 2023. <span>“RSQLite: SQLite Interface for r.”</span> <a href="https://CRAN.R-project.org/package=RSQLite">https://CRAN.R-project.org/package=RSQLite</a>.
+Müller, Kirill, Hadley Wickham, David A. James, and Seth Falcon. 2022. <em>RSQLite: SQLite Interface for r</em>. <a href="https://CRAN.R-project.org/package=RSQLite">https://CRAN.R-project.org/package=RSQLite</a>.
+</div>
+<div id="ref-DBI" class="csl-entry" role="listitem">
+R Special Interest Group on Databases (R-SIG-DB), Hadley Wickham, and Kirill Müller. 2022. <em>DBI: R Database Interface</em>. <a href="https://CRAN.R-project.org/package=DBI">https://CRAN.R-project.org/package=DBI</a>.
 </div>
 <div id="ref-rstudioapi" class="csl-entry" role="listitem">
 Ushey, Kevin, JJ Allaire, Hadley Wickham, and Gary Ritchie. 2023. <span>“Rstudioapi: Safely Access the RStudio API.”</span> <a href="https://CRAN.R-project.org/package=rstudioapi">https://CRAN.R-project.org/package=rstudioapi</a>.
 </div>
 <div id="ref-tidyverse" class="csl-entry" role="listitem">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4: 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+Wickham, Hadley. 2022. <em>Tidyverse: Easily Install and Load the Tidyverse</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
 </div>
 <div id="ref-dbplyr" class="csl-entry" role="listitem">
-Wickham, Hadley, Maximilian Girlich, and Edgar Ruiz. 2023. <span>“Dbplyr: A ’Dplyr’ Back End for Databases.”</span> <a href="https://CRAN.R-project.org/package=dbplyr">https://CRAN.R-project.org/package=dbplyr</a>.
-</div>
-<div id="ref-DBI" class="csl-entry" role="listitem">
-Wickham, Hadley, and Kirill Müller. 2022. <span>“DBI: R Database Interface.”</span> <a href="https://CRAN.R-project.org/package=DBI">https://CRAN.R-project.org/package=DBI</a>.
+Wickham, Hadley, Maximilian Girlich, and Edgar Ruiz. 2022. <em>Dbplyr: A Dplyr Back End for Databases</em>. <a href="https://CRAN.R-project.org/package=dbplyr">https://CRAN.R-project.org/package=dbplyr</a>.
 </div>
 </div>
 </section>
@@ -680,8 +686,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./03_ggplot2_ext.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ten additional geoms for ggplot2</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

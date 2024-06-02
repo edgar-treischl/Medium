@@ -10,6 +10,7 @@ book:
     - index.qmd
     - 01_scan.qmd
     - 02_master_sql.qmd
+    - 03_ggplot2_ext.qmd
     - references.qmd
 
 bibliography: references.bib

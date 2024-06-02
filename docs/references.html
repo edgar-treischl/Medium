@@ -49,7 +49,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02_master_sql.html" rel="prev">
+<link href="./03_ggplot2_ext.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -154,6 +154,12 @@ document.addEventListener("DOMContentLoaded", function() {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./03_ggplot2_ext.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ten additional geoms for ggplot2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">References</span></a>
   </div>
@@ -188,9 +194,17 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-rmarkdown" class="csl-entry" role="listitem">
-Allaire, JJ, Yihui Xie, Christophe Dervieux, Jonathan McPherson, Javier
-Luraschi, Kevin Ushey, Aron Atkins, et al. 2023. <span>“Rmarkdown:
-Dynamic Documents for r.”</span> <a href="https://github.com/rstudio/rmarkdown">https://github.com/rstudio/rmarkdown</a>.
+Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin
+Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and
+Richard Iannone. 2022. <em>Rmarkdown: Dynamic Documents for r</em>. <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a>.
+</div>
+<div id="ref-ggalluvial" class="csl-entry" role="listitem">
+Brunson, Jason Cory, and Quentin D. Read. 2020. <em>Ggalluvial: Alluvial
+Plots in Ggplot2</em>. <a href="https://CRAN.R-project.org/package=ggalluvial">https://CRAN.R-project.org/package=ggalluvial</a>.
+</div>
+<div id="ref-ggbeeswarm" class="csl-entry" role="listitem">
+Clarke, Erik, and Scott Sherrill-Mix. 2017. <em>Ggbeeswarm: Categorical
+Scatter (Violin Point) Plots</em>. <a href="https://CRAN.R-project.org/package=ggbeeswarm">https://CRAN.R-project.org/package=ggbeeswarm</a>.
 </div>
 <div id="ref-keyring" class="csl-entry" role="listitem">
 Csárdi, Gábor. 2022. <span>“Keyring: Access the System Credential Store
@@ -204,35 +218,89 @@ SQL.”</span> <a href="https://CRAN.R-project.org/package=sqldf">https://CRAN.R
 Grün, Bettina, and Achim Zeileis. 2009. <span>“Automatic Generation of
 Exams in <span></span>r<span></span>”</span> 29. <a href="https://doi.org/10.18637/jss.v029.i10">https://doi.org/10.18637/jss.v029.i10</a>.
 </div>
+<div id="ref-palmerpenguins-2" class="csl-entry" role="listitem">
+Horst, Allison Marie, Alison Presmanes Hill, and Kristen B Gorman. 2020.
+<span>“Palmerpenguins: Palmer Archipelago (Antarctica) Penguin
+Data.”</span> <a href="https://doi.org/10.5281/zenodo.3960218">https://doi.org/10.5281/zenodo.3960218</a>.
+</div>
+<div id="ref-ggmosaic" class="csl-entry" role="listitem">
+Jeppson, Haley, Heike Hofmann, and Di Cook. 2021. <em>Ggmosaic: Mosaic
+Plots in the Ggplot2 Framework</em>. <a href="https://CRAN.R-project.org/package=ggmosaic">https://CRAN.R-project.org/package=ggmosaic</a>.
+</div>
+<div id="ref-ggmap2013" class="csl-entry" role="listitem">
+Kahle, David, and Hadley Wickham. 2013. <span>“Ggmap: Spatial
+Visualization with Ggplot2.”</span> <em>The R Journal</em> 5 (1):
+144–61. <a href="https://journal.r-project.org/archive/2013-1/kahle-wickham.pdf">https://journal.r-project.org/archive/2013-1/kahle-wickham.pdf</a>.
+</div>
+<div id="ref-ggmap" class="csl-entry" role="listitem">
+Kahle, David, Hadley Wickham, and Scott Jackson. 2019. <em>Ggmap:
+Spatial Visualization with Ggplot2</em>. <a href="https://CRAN.R-project.org/package=ggmap">https://CRAN.R-project.org/package=ggmap</a>.
+</div>
+<div id="ref-survminer" class="csl-entry" role="listitem">
+Kassambara, Alboukadel, Marcin Kosinski, and Przemyslaw Biecek. 2021.
+<em>Survminer: Drawing Survival Curves Using Ggplot2</em>. <a href="https://CRAN.R-project.org/package=survminer">https://CRAN.R-project.org/package=survminer</a>.
+</div>
+<div id="ref-ggwordcloud" class="csl-entry" role="listitem">
+Le Pennec, Erwan, and Kamil Slowikowski. 2022. <em>Ggwordcloud: A Word
+Cloud Geom for Ggplot2</em>.
+</div>
 <div id="ref-RSQLite" class="csl-entry" role="listitem">
-Müller, Kirill, Hadley Wickham, David A. James, and Seth Falcon. 2023.
-<span>“RSQLite: SQLite Interface for r.”</span> <a href="https://CRAN.R-project.org/package=RSQLite">https://CRAN.R-project.org/package=RSQLite</a>.
+Müller, Kirill, Hadley Wickham, David A. James, and Seth Falcon. 2022.
+<em>RSQLite: SQLite Interface for r</em>. <a href="https://CRAN.R-project.org/package=RSQLite">https://CRAN.R-project.org/package=RSQLite</a>.
+</div>
+<div id="ref-ggcharts" class="csl-entry" role="listitem">
+Neitmann, Thomas. 2020. <em>Ggcharts: Shorten the Distance from Data
+Visualization Idea to Actual Plot</em>. <a href="https://CRAN.R-project.org/package=ggcharts">https://CRAN.R-project.org/package=ggcharts</a>.
+</div>
+<div id="ref-gganimate" class="csl-entry" role="listitem">
+Pedersen, Thomas Lin, and David Robinson. 2022. <em>Gganimate: A Grammar
+of Animated Graphics</em>. <a href="https://CRAN.R-project.org/package=gganimate">https://CRAN.R-project.org/package=gganimate</a>.
+</div>
+<div id="ref-DBI" class="csl-entry" role="listitem">
+R Special Interest Group on Databases (R-SIG-DB), Hadley Wickham, and
+Kirill Müller. 2022. <em>DBI: R Database Interface</em>. <a href="https://CRAN.R-project.org/package=DBI">https://CRAN.R-project.org/package=DBI</a>.
+</div>
+<div id="ref-waffle" class="csl-entry" role="listitem">
+Rudis, Bob, and Dave Gandy. 2017. <em>Waffle: Create Waffle Chart
+Visualizations in r</em>. <a href="https://CRAN.R-project.org/package=waffle">https://CRAN.R-project.org/package=waffle</a>.
+</div>
+<div id="ref-silge_text_2017" class="csl-entry" role="listitem">
+Silge, Julia, and David Robinson. 2017. <em>Text <span>Mining</span>
+with <span>R</span>: <span>A</span> <span>Tidy</span>
+<span>Approach</span></em>. Beijing; Boston: O’Reilly.
 </div>
 <div id="ref-rstudioapi" class="csl-entry" role="listitem">
 Ushey, Kevin, JJ Allaire, Hadley Wickham, and Gary Ritchie. 2023.
 <span>“Rstudioapi: Safely Access the RStudio API.”</span> <a href="https://CRAN.R-project.org/package=rstudioapi">https://CRAN.R-project.org/package=rstudioapi</a>.
 </div>
-<div id="ref-ggplot2" class="csl-entry" role="listitem">
-Wickham, Hadley. 2016. <span>“Ggplot2: Elegant Graphics for Data
-Analysis.”</span> <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
-</div>
 <div id="ref-tidyverse" class="csl-entry" role="listitem">
-Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy
-D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019.
-<span>“Welcome to the <span></span>Tidyverse<span></span>”</span> 4:
-1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+Wickham, Hadley. 2022. <em>Tidyverse: Easily Install and Load the
+Tidyverse</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
+</div>
+<div id="ref-ggplot2" class="csl-entry" role="listitem">
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen,
+Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey
+Dunnington. 2022. <em>Ggplot2: Create Elegant Data Visualisations Using
+the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
 </div>
 <div id="ref-dplyr" class="csl-entry" role="listitem">
 Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis
 Vaughan. 2023. <span>“Dplyr: A Grammar of Data Manipulation.”</span> <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
 </div>
 <div id="ref-dbplyr" class="csl-entry" role="listitem">
-Wickham, Hadley, Maximilian Girlich, and Edgar Ruiz. 2023.
-<span>“Dbplyr: A ’Dplyr’ Back End for Databases.”</span> <a href="https://CRAN.R-project.org/package=dbplyr">https://CRAN.R-project.org/package=dbplyr</a>.
+Wickham, Hadley, Maximilian Girlich, and Edgar Ruiz. 2022. <em>Dbplyr: A
+Dplyr Back End for Databases</em>. <a href="https://CRAN.R-project.org/package=dbplyr">https://CRAN.R-project.org/package=dbplyr</a>.
 </div>
-<div id="ref-DBI" class="csl-entry" role="listitem">
-Wickham, Hadley, and Kirill Müller. 2022. <span>“DBI: R Database
-Interface.”</span> <a href="https://CRAN.R-project.org/package=DBI">https://CRAN.R-project.org/package=DBI</a>.
+<div id="ref-ggtext" class="csl-entry" role="listitem">
+Wilke, Claus O. 2020. <em>Ggtext: Improved Text Rendering Support for
+’Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=ggtext">https://CRAN.R-project.org/package=ggtext</a>.
+</div>
+<div id="ref-ggridges" class="csl-entry" role="listitem">
+———. 2021. <em>Ggridges: Ridgeline Plots in ’Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=ggridges">https://CRAN.R-project.org/package=ggridges</a>.
+</div>
+<div id="ref-treemapify" class="csl-entry" role="listitem">
+Wilkins, David. 2021. <em>Treemapify: Draw Treemaps in ’Ggplot2’</em>.
+<a href="https://CRAN.R-project.org/package=treemapify">https://CRAN.R-project.org/package=treemapify</a>.
 </div>
 </div>
 
@@ -474,8 +542,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02_master_sql.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Master SQL with R</span></span>
+      <a href="./03_ggplot2_ext.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ten additional geoms for ggplot2</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
