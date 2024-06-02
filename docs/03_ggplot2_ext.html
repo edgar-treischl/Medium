@@ -209,17 +209,17 @@ document.addEventListener("DOMContentLoaded", function() {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#alluvial" id="toc-alluvial" class="nav-link active" data-scroll-target="#alluvial"><span class="header-section-number">3.1</span> 01 Alluvial</a></li>
-  <li><a href="#beeswarm-plots" id="toc-beeswarm-plots" class="nav-link" data-scroll-target="#beeswarm-plots"><span class="header-section-number">3.2</span> 02 Beeswarm plots</a></li>
-  <li><a href="#choropleth-maps" id="toc-choropleth-maps" class="nav-link" data-scroll-target="#choropleth-maps"><span class="header-section-number">3.3</span> 03 Choropleth maps</a></li>
-  <li><a href="#dots-dots-dots" id="toc-dots-dots-dots" class="nav-link" data-scroll-target="#dots-dots-dots"><span class="header-section-number">3.4</span> 04 Dots dots dots</a></li>
-  <li><a href="#dumbbell-and-lollipop-charts" id="toc-dumbbell-and-lollipop-charts" class="nav-link" data-scroll-target="#dumbbell-and-lollipop-charts"><span class="header-section-number">3.5</span> 044 Dumbbell and lollipop charts</a></li>
-  <li><a href="#hexbin-map" id="toc-hexbin-map" class="nav-link" data-scroll-target="#hexbin-map"><span class="header-section-number">3.6</span> 05 Hexbin map</a></li>
-  <li><a href="#mosaic-plots" id="toc-mosaic-plots" class="nav-link" data-scroll-target="#mosaic-plots"><span class="header-section-number">3.7</span> 06 Mosaic plots</a></li>
-  <li><a href="#ridge-plots" id="toc-ridge-plots" class="nav-link" data-scroll-target="#ridge-plots"><span class="header-section-number">3.8</span> 07 Ridge plots</a></li>
-  <li><a href="#treemaps" id="toc-treemaps" class="nav-link" data-scroll-target="#treemaps"><span class="header-section-number">3.9</span> 08 Treemaps</a></li>
-  <li><a href="#waffle-charts" id="toc-waffle-charts" class="nav-link" data-scroll-target="#waffle-charts"><span class="header-section-number">3.10</span> 09 Waffle charts</a></li>
-  <li><a href="#word-clouds" id="toc-word-clouds" class="nav-link" data-scroll-target="#word-clouds"><span class="header-section-number">3.11</span> 10 Word clouds</a></li>
+  <li><a href="#alluvial" id="toc-alluvial" class="nav-link active" data-scroll-target="#alluvial"><span class="header-section-number">3.1</span> Alluvial</a></li>
+  <li><a href="#beeswarm-plots" id="toc-beeswarm-plots" class="nav-link" data-scroll-target="#beeswarm-plots"><span class="header-section-number">3.2</span> Beeswarm plots</a></li>
+  <li><a href="#choropleth-maps" id="toc-choropleth-maps" class="nav-link" data-scroll-target="#choropleth-maps"><span class="header-section-number">3.3</span> Choropleth maps</a></li>
+  <li><a href="#dot-and-whisker-plot" id="toc-dot-and-whisker-plot" class="nav-link" data-scroll-target="#dot-and-whisker-plot"><span class="header-section-number">3.4</span> Dot-and-whisker plot</a></li>
+  <li><a href="#dumbbell-and-lollipop-charts" id="toc-dumbbell-and-lollipop-charts" class="nav-link" data-scroll-target="#dumbbell-and-lollipop-charts"><span class="header-section-number">3.5</span> Dumbbell and lollipop charts</a></li>
+  <li><a href="#hexbin-map" id="toc-hexbin-map" class="nav-link" data-scroll-target="#hexbin-map"><span class="header-section-number">3.6</span> Hexbin map</a></li>
+  <li><a href="#mosaic-plots" id="toc-mosaic-plots" class="nav-link" data-scroll-target="#mosaic-plots"><span class="header-section-number">3.7</span> Mosaic plots</a></li>
+  <li><a href="#ridge-plots" id="toc-ridge-plots" class="nav-link" data-scroll-target="#ridge-plots"><span class="header-section-number">3.8</span> Ridge plots</a></li>
+  <li><a href="#treemaps" id="toc-treemaps" class="nav-link" data-scroll-target="#treemaps"><span class="header-section-number">3.9</span> Treemaps</a></li>
+  <li><a href="#waffle-charts" id="toc-waffle-charts" class="nav-link" data-scroll-target="#waffle-charts"><span class="header-section-number">3.10</span> Waffle charts</a></li>
+  <li><a href="#word-clouds" id="toc-word-clouds" class="nav-link" data-scroll-target="#word-clouds"><span class="header-section-number">3.11</span> Word clouds</a></li>
   <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">3.12</span> Summary</a></li>
   </ul>
 </nav>
@@ -246,14 +246,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <p>The <code>ggplot2</code> package provides many possibilities to visualize data and let you create visualizations from the ground. Moreover, there are plenty of <code>ggplot2</code> extensions packages that increase your possibilities and in this blog I concentrate on ten packages providing an additional geom. (1) I describe each visualization briefly. (2) I show an example graph. (3) I provide a minimal code snippet to recreate such a graph with implemented data. By relying on implemented data, there is no hassle of running many data preparation steps if you want to explore one of the packages on your own. Now, relax and get inspired by the many <code>ggplot2</code> authors and extensions.</p>
 <section id="alluvial" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="alluvial"><span class="header-section-number">3.1</span> 01 Alluvial</h2>
-<p>Alluvial charts show how proportions develop over time and are therfore ideal to highlight the interrelatedness of variables or the flow of a process. As the example plot shows, I used official data from German School Departments to depict the change of school types (downward and upward mobility) within a given year. As the plot shows, most pupils to a lower school type and in consequence downward mobility is larger in Germany.</p>
+<h2 data-number="3.1" class="anchored" data-anchor-id="alluvial"><span class="header-section-number">3.1</span> Alluvial</h2>
+<p>Alluvial Diagrams are a great way to visualize the flow of data. For example, I used official data from German School Departments to depict the change of school types (downward and upward mobility) within a given year. As the plot shows, most pupils change to a lower school type and in consequence downward mobility is larger in Germany.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="plots/03/Fig_731-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The <code>ggalluvial</code> package implements an alluvial plot as an <code>ggplot2</code> <span class="citation" data-cites="ggalluvial">(see <a href="references.html#ref-ggalluvial" role="doc-biblioref">Brunson and Read 2020</a>)</span>. For example, you may use the <code>titanic</code> data to examine who survived the sinking of the Titanic. The alluvial chart helps us depict how socio-demographic variables such as sex, age, or class are related in terms of survival. The <code>geom_stratum()</code> function draws boxes that display the frequency of each group level and the <code>geom_alluvium()</code> shows the flow between groups.</p>
+<p>The <code>ggalluvial</code> package provides an alluvial plot as an <code>ggplot2</code> extension <span class="citation" data-cites="ggalluvial">(<a href="references.html#ref-ggalluvial" role="doc-biblioref">Brunson and Read 2020</a>)</span>. The <code>geom_stratum()</code> function adds the stratum lines to the plot and the <code>geom_alluvium()</code> function fills the strata with the observed values. The minimal code example shows how to create an alluvial plot with the <code>titanic</code> data. The data must be in a wide format to work with.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Minimal code example #####</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -268,14 +268,14 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </section>
 <section id="beeswarm-plots" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="beeswarm-plots"><span class="header-section-number">3.2</span> 02 Beeswarm plots</h2>
-<p>Scatter plots are awesome to examine a relationship, but sometimes there are too many observations to see what is going on and single points are no longer visible. A beeswarm plot decreases over-plotting by adding vertical noise. It is a categorical scatter plot that shows the distribution of a numerical variable for each category <span class="citation" data-cites="ggbeeswarm">(<a href="references.html#ref-ggbeeswarm" role="doc-biblioref">Clarke and Sherrill-Mix 2017</a>)</span>. For example, the following plot depicts body mass for each species and sex of the <code>palmerpenguins</code> data <span class="citation" data-cites="palmerpenguins-2">(<a href="references.html#ref-palmerpenguins-2" role="doc-biblioref">Horst, Hill, and Gorman 2020</a>)</span>.</p>
+<h2 data-number="3.2" class="anchored" data-anchor-id="beeswarm-plots"><span class="header-section-number">3.2</span> Beeswarm plots</h2>
+<p>Scatter plots are awesome to visualize the relationship between two numerical variables. However, if you have a lot of data points, over-plotting can be a problem. A beeswarm plot is a great alternative to scatter plots, because it decreases over-plotting by adding vertical noise. It is a categorical scatter plot that shows the distribution of a numerical variable for each category. For example, the following plot depicts body mass for each species and sex of the <code>palmerpenguins</code> data <span class="citation" data-cites="palmerpenguins-2">(<a href="references.html#ref-palmerpenguins-2" role="doc-biblioref">Horst, Hill, and Gorman 2020</a>)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="plots/03/Fig_732-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The <code>ggbeeswarm</code> package provides several methods to reduce over-plotting (e.g., <code>pseudorandom</code>, <code>smiley</code>). The <code>geom_quasirandom()</code> function adds quasi-random noise to each observation as a default method.</p>
+<p>The <code>ggbeeswarm</code> package provides the <code>geom_quasirandom()</code> function to create a beeswarm plot <span class="citation" data-cites="ggbeeswarm">(<a href="references.html#ref-ggbeeswarm" role="doc-biblioref">Clarke and Sherrill-Mix 2017</a>)</span>. The function adds a little bit of noise to the x-axis to avoid over-plotting. You can pick the <code>method</code> argument to control the distribution of the points. Example methoda are <code>quasirandom</code>, <code>pseudorandom</code>, or <code>smiley</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Minimal code example #####</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbeeswarm)</span>
@@ -286,14 +286,17 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </section>
 <section id="choropleth-maps" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="choropleth-maps"><span class="header-section-number">3.3</span> 03 Choropleth maps</h2>
-<p>Create a choropleth map with <code>ggplot2</code>. The latter displays a geographical area (or region) and, for example, fills the shape of the area. The next plot displays the number of arrests in the US. It takes time and effort to create a choropleth map, but the result is worth the trouble.</p>
+<h2 data-number="3.3" class="anchored" data-anchor-id="choropleth-maps"><span class="header-section-number">3.3</span> Choropleth maps</h2>
+<p>Create a choropleth map: a map that displays areas with different colors based on the observed value.</p>
+<p>The example shows the US unemployment rates in 2009. Creating a choropleth map is a bit more complicated than other plots, because you need to match the data with the geographical areas.</p>
+<p>The <code>ggplot2</code> package does not provide a function to create choropleth maps, but the <code>ggplot2</code> extension <code>ggplot2</code> provides the <code>geom_sf()</code> function to create such maps <span class="citation" data-cites="ggplot2">(<a href="references.html#ref-ggplot2" role="doc-biblioref">Wickham et al. 2022</a>)</span>. The <code>sf</code> package is used to handle spatial data <span class="citation" data-cites="sf">(<a href="references.html#ref-sf" role="doc-biblioref"><strong>sf?</strong></a>)</span>. The minimal code example shows how to create a choropleth map with the <code>USArrests</code> data.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="plots/03/Fig_733-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>In addition, the <code>ggmap</code> package helps to create maps <span class="citation" data-cites="ggmap ggmap2013">(<a href="references.html#ref-ggmap" role="doc-biblioref">Kahle, Wickham, and Jackson 2019</a>; <a href="references.html#ref-ggmap2013" role="doc-biblioref">Kahle and Wickham 2013</a>)</span>, because we need to draw the shape of each area (e.g., country shape) first. The shape must be displayed by its longitude and latitude before we can fill the area or display numbers that describe the area. The minimal code does not need any additional package and shows an example from the <code>ggplot2</code> cheat sheet. If the corresponding geographical areas can be matched with the data, <code>geom_map()</code> draws the map and fills each area with the observed value.</p>
+<p>In addition, the <code>ggmap</code> package helps to create maps <span class="citation" data-cites="ggmap ggmap2013">(<a href="references.html#ref-ggmap" role="doc-biblioref">Kahle, Wickham, and Jackson 2019</a>; <a href="references.html#ref-ggmap2013" role="doc-biblioref">Kahle and Wickham 2013</a>)</span>, because we need to draw the shape of each area (e.g., country shape) first. The shape must be displayed by its longitude and latitude before we can fill the area or display numbers that describe the area.</p>
+<p>The minimal code does not need any additional package and shows an example from the <code>ggplot2</code> cheat sheet. If the corresponding geographical areas can be matched with the data, <code>geom_map()</code> draws the map and fills each area with the observed value.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Minimal code example #####</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Source: This example comes from the ggplot2 cheat sheet!</span></span>
@@ -306,15 +309,15 @@ document.addEventListener("DOMContentLoaded", function() {
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> map<span class="sc">$</span>long, <span class="at">y =</span> map<span class="sc">$</span>lat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="dots-dots-dots" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="dots-dots-dots"><span class="header-section-number">3.4</span> 04 Dots dots dots</h2>
-<p>Bla bla</p>
+<section id="dot-and-whisker-plot" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="dot-and-whisker-plot"><span class="header-section-number">3.4</span> Dot-and-whisker plot</h2>
+<p>A dot-and-whisker plot is a plot that shows the point estimates and confidence intervals of regression coefficients. It is a useful tool for visualizing the uncertainty associated with regression estimates. In the example below, I just run an example analysis with the palmerpenguins data.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="plots/03/Fig_7311-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Creating a word cloud is not rocket since, but working with text is a complicated topic in the beginning. Fortunately, there is no need to learn text mining first, the <code>ggwordcloud</code> package includes data to make word clouds. Consider reading <em>Text Mining with R</em> by <span class="citation" data-cites="silge_text_2017">Silge and Robinson (<a href="references.html#ref-silge_text_2017" role="doc-biblioref">2017</a>)</span> to learn more about text mining.</p>
+<p>The dotwhisker package creates dot-and-whisker plots. It allows users to customize the appearance of the plot by adjusting various parameters such as the color and size of the dots and whiskers. However, if you need to come up with a quick solution, the jtools package also implements convenient solutions.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dotwhisker)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
@@ -329,8 +332,8 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </section>
 <section id="dumbbell-and-lollipop-charts" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="dumbbell-and-lollipop-charts"><span class="header-section-number">3.5</span> 044 Dumbbell and lollipop charts</h2>
-<p>The <code>ggplot2</code> package lets you build a graph from scratch, but creating a visualization is hard work. The <code>ggcharts</code> package is for the lazy cats and gives access to a lot of common charts <span class="citation" data-cites="ggcharts">(<a href="references.html#ref-ggcharts" role="doc-biblioref">Neitmann 2020</a>)</span>. The package has implemented those graphs with its own functions, and we don’t have to create each step on our own. Furthermore, the package returns <code>ggplot2</code> objects, which implies that you can apply your <code>ggplot2</code> knowledge as well.</p>
+<h2 data-number="3.5" class="anchored" data-anchor-id="dumbbell-and-lollipop-charts"><span class="header-section-number">3.5</span> Dumbbell and lollipop charts</h2>
+<p>The <code>ggcharts</code> package is for the lazy cats and gives access to a lot of common charts <span class="citation" data-cites="ggcharts">(<a href="references.html#ref-ggcharts" role="doc-biblioref">Neitmann 2020</a>)</span>. The package has implemented graphs such as dumbbell and lollipop charts with its own functions, and we don’t have to create each step on our own.</p>
 <p>For example, create a dumbbell or a lollipop chart. I used the former to examine how life expectancy increased between 1952 and 2007 based on the <code>gapminder</code> data. The example shows the top 10 European countries with the highest increase in life expectancy.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -349,8 +352,8 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </section>
 <section id="hexbin-map" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="hexbin-map"><span class="header-section-number">3.6</span> 05 Hexbin map</h2>
-<p>Build a hexbin map with <code>ggplot2</code>. It displays hexagons as shapes. Actually, this graph is as an Easter egg since we do not need any additional package to make this plot. There are a lot of great extensions for <code>ggplot2</code>, but you can create many graphs with <code>ggplot2</code> alone and we did not explore all geoms. For example, the <code>geom_polygon()</code> function creates the hexbin map and here it shows US unemployment rates.</p>
+<h2 data-number="3.6" class="anchored" data-anchor-id="hexbin-map"><span class="header-section-number">3.6</span> Hexbin map</h2>
+<p>Create a hexbin map with <code>ggplot2</code>. A hexbin map is a great way to visualize the density of data points in a geographical area. It may surprise you, there is no extension package needed. The <code>geom_polygon()</code> function creates the hexbin map and here it shows US unemployment rates.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="plots/03/Fig_735.png" class="img-fluid" width="1108"></p>
@@ -364,14 +367,14 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </section>
 <section id="mosaic-plots" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="mosaic-plots"><span class="header-section-number">3.7</span> 06 Mosaic plots</h2>
-<p>Mosaic (or spine) plots are very powerful when visualizing descriptive results, and we created one with base R in Chapter 3. However, mosaic plots are also implemented in <code>ggplot2</code>. The <code>ggmosaic()</code> package provides the corresponding geom <span class="citation" data-cites="ggmosaic">(<a href="references.html#ref-ggmosaic" role="doc-biblioref">Jeppson, Hofmann, and Cook 2021</a>)</span>. The illustration uses the <code>titanic</code> data and depicts the effect of passenger’s sex on survival. Obviously, more women than men survived the accident.</p>
+<h2 data-number="3.7" class="anchored" data-anchor-id="mosaic-plots"><span class="header-section-number">3.7</span> Mosaic plots</h2>
+<p>Mosaic (or spine) plots are a great way to visualize the relationship between two categorical variables. The area of each rectangle is proportional to the number of observations in each category. I used the <code>titanic</code> data to depict the effect of passenger’s sex on survival. Obviously, more women than men survived the accident.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="plots/03/Fig_736-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>As the minimal code illustrates, the <code>geom_mosaic</code> comes with a <code>product()</code> function to estimate frequencies for each category and fills each box accordingly.</p>
+<p>The <code>ggmosaic()</code> package provides the corresponding geom <span class="citation" data-cites="ggmosaic">(<a href="references.html#ref-ggmosaic" role="doc-biblioref">Jeppson, Hofmann, and Cook 2021</a>)</span>. The package is a great tool to create mosaic plots and it is easy to use. The minimal code example shows how to create a mosaic plot with the <code>titanic</code> data. The product function is used to create a two-way table.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Minimal code example #####</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmosaic)</span>
@@ -382,14 +385,14 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </section>
 <section id="ridge-plots" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="ridge-plots"><span class="header-section-number">3.8</span> 07 Ridge plots</h2>
-<p>Compare the distribution of a numeric variable with a ridge plot <span class="citation" data-cites="ggridges">(<a href="references.html#ref-ggridges" role="doc-biblioref">Wilke 2021</a>)</span>. In the example, I used the <code>gapminder</code> data to inspect how life expectancy differs between continents in 2007. As the plots shows, Europe has the highest, while Africa had the lowest life expectancy. The distribution is much wider in Africa compared to other continents.</p>
+<h2 data-number="3.8" class="anchored" data-anchor-id="ridge-plots"><span class="header-section-number">3.8</span> Ridge plots</h2>
+<p>A ridge plot is a great way to visualize the distribution of a numerical variable across different categories. The plot shows the density of the variable for each category. In the example plot, I used the <code>gapminder</code> data to visualize the distribution of life expectancy across different continents. Europe has the highest, while Africa had the lowest life expectancy. The distribution is much wider in Africa compared to other continents.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="plots/03/Fig_737-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The <code>ggridges</code> package comes with data and a lot of illustrative examples provided by Claus Wilke, the author of the package. As the code from the vignette illustrates, explore how the weather (temperature) develops within a year.</p>
+<p>The <code>ggridges</code> package was developed by <span class="citation" data-cites="wilke_ggridges_2018">(<a href="references.html#ref-wilke_ggridges_2018" role="doc-biblioref"><strong>wilke_ggridges_2018?</strong></a>)</span> and provides many examples to create ridge plots <span class="citation" data-cites="ggridges">(<a href="references.html#ref-ggridges" role="doc-biblioref">Wilke 2021</a>)</span>. The package creates a ridge plot and fills the area under the curve with a gradient color. As the code from the ggridges vignette illustrates, explore how the weather (temperature) changes over a year.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Minimal code example #####</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
@@ -404,14 +407,14 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </section>
 <section id="treemaps" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="treemaps"><span class="header-section-number">3.9</span> 08 Treemaps</h2>
-<p>You can visualize hierarchical data with a treemap, because the area of the rectangle is chosen proportionally to the size of each cluster. Before he was banned, Donald Trump was a huge fan of Twitter and Axios collected and categorized his tweets. Some tweets were about <em>the media</em>, <em>democrats</em>, and the grand old party (<em>GOP</em>), with further subgroups within each category. I used this data and the <code>treemapify</code> package to make a treemap <span class="citation" data-cites="treemapify">(<a href="references.html#ref-treemapify" role="doc-biblioref">Wilkins 2021</a>)</span>. Mr.&nbsp;Trump tweeted a lot about “the media” and the “Democrats” in 2019.</p>
+<h2 data-number="3.9" class="anchored" data-anchor-id="treemaps"><span class="header-section-number">3.9</span> Treemaps</h2>
+<p>A treemap is a great way to visualize hierarchical data. The area of each rectangle is proportional to the observed value. Before he was banned, Donald Trump was a huge fan of Twitter and Axios collected and categorized his tweets. Some tweets were about <em>the media</em>, <em>democrats</em>, and the grand old party (<em>GOP</em>), with further subgroups within each category. I used this data and the <code>treemapify</code> package to make a treemap <span class="citation" data-cites="treemapify">(<a href="references.html#ref-treemapify" role="doc-biblioref">Wilkins 2021</a>)</span>. Mr.&nbsp;Trump tweeted a lot about “the media” and the “Democrats” in 2019.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="plots/03/Fig_738-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The data of the last plot is not available, but you can use the <code>gapminder</code> data to explore how <code>treemapify</code> works.</p>
+<p>In the example below I used the <code>gapminder</code> data to visualize the GDP per capita and life expectancy of European countries in 2007. The <code>treemapify</code> package provides the <code>geom_treemap()</code> function to create a treemap. The <code>geom_treemap_text()</code> function adds labels to the treemap.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Minimal code example #####</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(treemapify)</span>
@@ -429,14 +432,14 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </section>
 <section id="waffle-charts" class="level2" data-number="3.10">
-<h2 data-number="3.10" class="anchored" data-anchor-id="waffle-charts"><span class="header-section-number">3.10</span> 09 Waffle charts</h2>
-<p>Do not make a pie, make a waffle. Waffle charts depict a whole (or part of the whole), and it gives the audience visual clues to assess the size of each group, especially if each square represents exactly one percentage point. The example plot illustrates the “leaky pipeline” in academic careers. Did you know that after each transition step in higher education (e.g., graduation, Ph.D.), more men than women remain in the system? The sex ratios become more and more skewed till the end of the academic pathway. I used a waffle chart to illustrate the leaky pipeline for Germany in 2020.</p>
+<h2 data-number="3.10" class="anchored" data-anchor-id="waffle-charts"><span class="header-section-number">3.10</span> Waffle charts</h2>
+<p>An alternative for a pie chart is a waffle chart. The latter depicts values across different categories and the area of each rectangle is proportional to the observed value. In case of percentages, the area of each rectangle is proportional to the percentage value. My example shows the leaky pipeline in academia. Did you know that after each transition step in higher education (e.g., graduation, Ph.D.), more men than women remain in the system? The sex ratios become skewed till the end of the academic pathway. I used a waffle chart to illustrate the leaky pipeline for Germany in 2020.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="plots/03/Fig_739-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The <code>waffle</code> package makes it easy to create waffle charts <span class="citation" data-cites="waffle">(<a href="references.html#ref-waffle" role="doc-biblioref">Rudis and Gandy 2017</a>)</span>. It only needs a numerical input to create the chart and the function returns a <code>ggplot2</code> object.</p>
+<p>The <code>waffle</code> package provides the <code>waffle()</code> function to create a waffle chart <span class="citation" data-cites="waffle">(<a href="references.html#ref-waffle" role="doc-biblioref">Rudis and Gandy 2017</a>)</span>. The <code>rows</code> argument controls the number of rows in the chart. The minimal code shows how to create a waffle chart with a toy vector.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Minimal code example #####</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(waffle)</span>
@@ -446,14 +449,14 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </section>
 <section id="word-clouds" class="level2" data-number="3.11">
-<h2 data-number="3.11" class="anchored" data-anchor-id="word-clouds"><span class="header-section-number">3.11</span> 10 Word clouds</h2>
-<p>Use a word cloud to depict the result of a text analysis. A word cloud displays, for example, the frequency of words by its font size. The plot shows the word cloud of a children’s book that I made with the <code>ggwordcloud</code> package <span class="citation" data-cites="ggwordcloud">(<a href="references.html#ref-ggwordcloud" role="doc-biblioref">Le Pennec and Slowikowski 2022</a>)</span>. Do you know which one? Witches and wizards play a big role in this book.</p>
+<h2 data-number="3.11" class="anchored" data-anchor-id="word-clouds"><span class="header-section-number">3.11</span> Word clouds</h2>
+<p>A word cloud shows the frequency of words in a text. The size of each word is proportional to its frequency. The plot shows the word cloud of a children’s book that I made with the <code>ggwordcloud</code> package <span class="citation" data-cites="ggwordcloud">(<a href="references.html#ref-ggwordcloud" role="doc-biblioref">Le Pennec and Slowikowski 2022</a>)</span>. Witches and wizards play a big role in this book.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="plots/03/Fig_7310-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Creating a word cloud is not rocket since, but working with text is a complicated topic in the beginning. Fortunately, there is no need to learn text mining first, the <code>ggwordcloud</code> package includes data to make word clouds. Consider reading <em>Text Mining with R</em> by <span class="citation" data-cites="silge_text_2017">Silge and Robinson (<a href="references.html#ref-silge_text_2017" role="doc-biblioref">2017</a>)</span> to learn more about text mining.</p>
+<p>The ggwordcloud package provides the <code>geom_text_wordcloud()</code> function to create a word cloud. The <code>size</code> argument controls the size of the words. The minimal code example shows how to create a word cloud with the <code>love_words_small</code> data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Minimal code example by Erwan Le Pennec </span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggwordcloud)</span>
@@ -506,8 +509,8 @@ Pedersen, Thomas Lin, and David Robinson. 2022. <em>Gganimate: A Grammar of Anim
 <div id="ref-waffle" class="csl-entry" role="listitem">
 Rudis, Bob, and Dave Gandy. 2017. <em>Waffle: Create Waffle Chart Visualizations in r</em>. <a href="https://CRAN.R-project.org/package=waffle">https://CRAN.R-project.org/package=waffle</a>.
 </div>
-<div id="ref-silge_text_2017" class="csl-entry" role="listitem">
-Silge, Julia, and David Robinson. 2017. <em>Text <span>Mining</span> with <span>R</span>: <span>A</span> <span>Tidy</span> <span>Approach</span></em>. Beijing; Boston: O’Reilly.
+<div id="ref-ggplot2" class="csl-entry" role="listitem">
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2022. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
 </div>
 <div id="ref-ggtext" class="csl-entry" role="listitem">
 Wilke, Claus O. 2020. <em>Ggtext: Improved Text Rendering Support for ’Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=ggtext">https://CRAN.R-project.org/package=ggtext</a>.
