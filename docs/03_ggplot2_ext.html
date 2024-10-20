@@ -83,7 +83,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./04_gist.html" rel="next">
 <link href="./02_master_sql.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -195,6 +195,12 @@ document.addEventListener("DOMContentLoaded", function() {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./04_gist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Manage Code Snippets with GitHub Gist</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -212,7 +218,7 @@ document.addEventListener("DOMContentLoaded", function() {
   <li><a href="#alluvial" id="toc-alluvial" class="nav-link active" data-scroll-target="#alluvial"><span class="header-section-number">3.1</span> Alluvial</a></li>
   <li><a href="#beeswarm-plots" id="toc-beeswarm-plots" class="nav-link" data-scroll-target="#beeswarm-plots"><span class="header-section-number">3.2</span> Beeswarm plots</a></li>
   <li><a href="#choropleth-maps" id="toc-choropleth-maps" class="nav-link" data-scroll-target="#choropleth-maps"><span class="header-section-number">3.3</span> Choropleth maps</a></li>
-  <li><a href="#dot-and-whisker-plot" id="toc-dot-and-whisker-plot" class="nav-link" data-scroll-target="#dot-and-whisker-plot"><span class="header-section-number">3.4</span> Dot-and-whisker plot</a></li>
+  <li><a href="#dot-and-whisker-plot-copilot-stopped-here" id="toc-dot-and-whisker-plot-copilot-stopped-here" class="nav-link" data-scroll-target="#dot-and-whisker-plot-copilot-stopped-here"><span class="header-section-number">3.4</span> Dot-and-whisker plot: Copilot stopped here</a></li>
   <li><a href="#dumbbell-and-lollipop-charts" id="toc-dumbbell-and-lollipop-charts" class="nav-link" data-scroll-target="#dumbbell-and-lollipop-charts"><span class="header-section-number">3.5</span> Dumbbell and lollipop charts</a></li>
   <li><a href="#hexbin-map" id="toc-hexbin-map" class="nav-link" data-scroll-target="#hexbin-map"><span class="header-section-number">3.6</span> Hexbin map</a></li>
   <li><a href="#mosaic-plots" id="toc-mosaic-plots" class="nav-link" data-scroll-target="#mosaic-plots"><span class="header-section-number">3.7</span> Mosaic plots</a></li>
@@ -244,16 +250,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </header>
 
-<p>The <code>ggplot2</code> package provides many possibilities to visualize data and let you create visualizations from the ground. Moreover, there are plenty of <code>ggplot2</code> extensions packages that increase your possibilities and in this blog I concentrate on ten packages providing an additional geom. (1) I describe each visualization briefly. (2) I show an example graph. (3) I provide a minimal code snippet to recreate such a graph with implemented data. By relying on implemented data, there is no hassle of running many data preparation steps if you want to explore one of the packages on your own. Now, relax and get inspired by the many <code>ggplot2</code> authors and extensions.</p>
+<p>The <code>ggplot2</code> package is awesome to create visualizations. It offers a wide range of possibilities to create a lot visualizations, it even lets you create visualizations from the ground. Moreover, there are plenty of <code>ggplot2</code> extensions packages: <code>ggplot2</code> extensions are packages that provide additional geoms, stats, scales, and themes to <code>ggplot2</code>. These packages extend the possibilities of <code>ggplot2</code>.</p>
+<p>I introduce in this article ten packages that provide an additional geom. (1) I describe each visualization briefly. (2) I show an example graph. (3) I provide a minimal code snippet to recreate such a graph with implemented data.</p>
+<p>By relying on implemented data, you can easily recreate the graph without the need download or prepare data. The minimal code snippets are a great starting point to explore the possibilities of the <code>ggplot2</code> extension packages.</p>
 <section id="alluvial" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="alluvial"><span class="header-section-number">3.1</span> Alluvial</h2>
-<p>Alluvial Diagrams are a great way to visualize the flow of data. For example, I used official data from German School Departments to depict the change of school types (downward and upward mobility) within a given year. As the plot shows, most pupils change to a lower school type and in consequence downward mobility is larger in Germany.</p>
+<p>Alluvial diagrams depict the flow of data between different categories. The width of the lines is proportional to the number of observations that flow from one category to another. For example, I used official data from German School Departments to depict the change of school types (downward and upward mobility) within a given year. As the plot shows, most pupils change to a lower school type and in consequence downward mobility is larger in Germany.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="plots/03/Fig_731-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The <code>ggalluvial</code> package provides an alluvial plot as an <code>ggplot2</code> extension <span class="citation" data-cites="ggalluvial">(<a href="references.html#ref-ggalluvial" role="doc-biblioref">Brunson and Read 2020</a>)</span>. The <code>geom_stratum()</code> function adds the stratum lines to the plot and the <code>geom_alluvium()</code> function fills the strata with the observed values. The minimal code example shows how to create an alluvial plot with the <code>titanic</code> data. The data must be in a wide format to work with.</p>
+<p>The <code>ggalluvial</code> package has implemented the <code>geom_alluvium()</code> and <code>geom_stratum()</code> functions to create alluvial plots <span class="citation" data-cites="ggalluvial">(<a href="references.html#ref-ggalluvial" role="doc-biblioref">Brunson and Read 2020</a>)</span>. The <code>geom_alluvium()</code> function creates the flow of data between categories, while the <code>geom_stratum()</code> function adds the categories to the plot. The minimal code example shows how to create an alluvial plot with the <code>titanic</code> data. Provide the data in a wide format.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Minimal code example #####</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -269,13 +277,13 @@ document.addEventListener("DOMContentLoaded", function() {
 </section>
 <section id="beeswarm-plots" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="beeswarm-plots"><span class="header-section-number">3.2</span> Beeswarm plots</h2>
-<p>Scatter plots are awesome to visualize the relationship between two numerical variables. However, if you have a lot of data points, over-plotting can be a problem. A beeswarm plot is a great alternative to scatter plots, because it decreases over-plotting by adding vertical noise. It is a categorical scatter plot that shows the distribution of a numerical variable for each category. For example, the following plot depicts body mass for each species and sex of the <code>palmerpenguins</code> data <span class="citation" data-cites="palmerpenguins-2">(<a href="references.html#ref-palmerpenguins-2" role="doc-biblioref">Horst, Hill, and Gorman 2020</a>)</span>.</p>
+<p>Scatter plots are often used to visualize the relationship between two numerical variables. However, scatter plots can be difficult to interpret when there are many data points. A beeswarm plot is a great alternative to scatter plots, because it avoids over-plotting. Essentially, the beeswarm plot spreads the data points along the axis to avoid overlapping. For example, the following plot depicts body mass for each species and sex of the <code>palmerpenguins</code> data <span class="citation" data-cites="palmerpenguins-2">(<a href="references.html#ref-palmerpenguins-2" role="doc-biblioref">Horst, Hill, and Gorman 2020</a>)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="plots/03/Fig_732-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>The <code>ggbeeswarm</code> package provides the <code>geom_quasirandom()</code> function to create a beeswarm plot <span class="citation" data-cites="ggbeeswarm">(<a href="references.html#ref-ggbeeswarm" role="doc-biblioref">Clarke and Sherrill-Mix 2017</a>)</span>. The function adds a little bit of noise to the x-axis to avoid over-plotting. You can pick the <code>method</code> argument to control the distribution of the points. Example methoda are <code>quasirandom</code>, <code>pseudorandom</code>, or <code>smiley</code>.</p>
+<p>Use the <code>geom_quasirandom()</code> function from the <code>ggbeeswarm</code> package to create a beeswarm plot <span class="citation" data-cites="ggbeeswarm">(<a href="references.html#ref-ggbeeswarm" role="doc-biblioref">Clarke and Sherrill-Mix 2017</a>)</span>. The function spreads the data points along the axis to avoid overlapping. The <code>method</code> argument applies a specific algorithm to spread the data points. For example, pick <code>quasirandom</code>, <code>pseudorandom</code>, or <code>smiley</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Minimal code example #####</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggbeeswarm)</span>
@@ -287,16 +295,15 @@ document.addEventListener("DOMContentLoaded", function() {
 </section>
 <section id="choropleth-maps" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="choropleth-maps"><span class="header-section-number">3.3</span> Choropleth maps</h2>
-<p>Create a choropleth map: a map that displays areas with different colors based on the observed value.</p>
-<p>The example shows the US unemployment rates in 2009. Creating a choropleth map is a bit more complicated than other plots, because you need to match the data with the geographical areas.</p>
-<p>The <code>ggplot2</code> package does not provide a function to create choropleth maps, but the <code>ggplot2</code> extension <code>ggplot2</code> provides the <code>geom_sf()</code> function to create such maps <span class="citation" data-cites="ggplot2">(<a href="references.html#ref-ggplot2" role="doc-biblioref">Wickham et al. 2022</a>)</span>. The <code>sf</code> package is used to handle spatial data <span class="citation" data-cites="sf">(<a href="references.html#ref-sf" role="doc-biblioref"><strong>sf?</strong></a>)</span>. The minimal code example shows how to create a choropleth map with the <code>USArrests</code> data.</p>
+<p>A choropleth map is a great way to visualize geographical data. The color of each area is proportional to the observed value. The example plot shows the US unemployment rates in 2009.</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="plots/03/Fig_733-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>In addition, the <code>ggmap</code> package helps to create maps <span class="citation" data-cites="ggmap ggmap2013">(<a href="references.html#ref-ggmap" role="doc-biblioref">Kahle, Wickham, and Jackson 2019</a>; <a href="references.html#ref-ggmap2013" role="doc-biblioref">Kahle and Wickham 2013</a>)</span>, because we need to draw the shape of each area (e.g., country shape) first. The shape must be displayed by its longitude and latitude before we can fill the area or display numbers that describe the area.</p>
-<p>The minimal code does not need any additional package and shows an example from the <code>ggplot2</code> cheat sheet. If the corresponding geographical areas can be matched with the data, <code>geom_map()</code> draws the map and fills each area with the observed value.</p>
+<p>Creating a choropleth map can be tricky, because you need to match the data with the corresponding geographical areas.</p>
+<p>Moreover, the shape of the geographical areas must be drawn before filling them with the observed value. The <code>ggplot2</code> provides the <code>geom_sf()</code> function to create a map <span class="citation" data-cites="ggplot2">(<a href="references.html#ref-ggplot2" role="doc-biblioref">Wickham et al. 2022</a>)</span>. The <code>sf</code> package is used to handle spatial data <span class="citation" data-cites="sf">(<a href="references.html#ref-sf" role="doc-biblioref"><strong>sf?</strong></a>)</span>. Moreover, the <code>ggmap</code> package helps to create maps <span class="citation" data-cites="ggmap ggmap2013">(<a href="references.html#ref-ggmap" role="doc-biblioref">Kahle, Wickham, and Jackson 2019</a>; <a href="references.html#ref-ggmap2013" role="doc-biblioref">Kahle and Wickham 2013</a>)</span>, because it provides the <code>geom_map()</code> function. The function fills the geographical areas with the observed value.</p>
+<p>The minimal code example shows how to create a choropleth map with the <code>USArrests</code> data. The minimal code does not need any additional package and shows an example from the <code>ggplot2</code> cheat sheet. If the corresponding geographical areas can be matched with the data, <code>geom_map()</code> draws the map and fills each area.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Minimal code example #####</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co">#Source: This example comes from the ggplot2 cheat sheet!</span></span>
@@ -309,8 +316,8 @@ document.addEventListener("DOMContentLoaded", function() {
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand_limits</span>(<span class="at">x =</span> map<span class="sc">$</span>long, <span class="at">y =</span> map<span class="sc">$</span>lat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="dot-and-whisker-plot" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="dot-and-whisker-plot"><span class="header-section-number">3.4</span> Dot-and-whisker plot</h2>
+<section id="dot-and-whisker-plot-copilot-stopped-here" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="dot-and-whisker-plot-copilot-stopped-here"><span class="header-section-number">3.4</span> Dot-and-whisker plot: Copilot stopped here</h2>
 <p>A dot-and-whisker plot is a plot that shows the point estimates and confidence intervals of regression coefficients. It is a useful tool for visualizing the uncertainty associated with regression estimates. In the example below, I just run an example analysis with the palmerpenguins data.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -765,8 +772,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04_gist.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Manage Code Snippets with GitHub Gist</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Medium Articles - References</title>
+<title>Medium Articles - 4&nbsp; Manage Code Snippets with GitHub Gist</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,26 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -49,7 +64,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04_gist.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./03_ggplot2_ext.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -109,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_gist.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Manage Code Snippets with GitHub Gist</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -160,13 +176,13 @@ document.addEventListener("DOMContentLoaded", function() {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_gist.html" class="sidebar-item-text sidebar-link">
+  <a href="./04_gist.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Manage Code Snippets with GitHub Gist</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
 </li>
@@ -176,14 +192,21 @@ document.addEventListener("DOMContentLoaded", function() {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#installation" id="toc-installation" class="nav-link active" data-scroll-target="#installation"><span class="header-section-number">4.1</span> Installation</a></li>
+  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow"><span class="header-section-number">4.2</span> Workflow</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">References</h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Manage Code Snippets with GitHub Gist</span></h1>
 </div>
 
 
@@ -198,114 +221,84 @@ document.addEventListener("DOMContentLoaded", function() {
 
 </header>
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-rmarkdown" class="csl-entry" role="listitem">
-Allaire, JJ, Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin
-Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and
-Richard Iannone. 2022. <em>Rmarkdown: Dynamic Documents for r</em>. <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a>.
+<p>Why should we consider GitHub Gist for code snippets? It is a simple way to share code snippets with others. Moreover, you can embed gists in websites, blogs, and other documents. However, the best part about Gist is that your futrue self can access your code snippets from anywhere.</p>
+<p>For this reason I wrote a simple R package to manage Gists. The gist package provides a set of functions to work with <a href="https://gist.github.com/">GitHub Gist</a>. It allows you to copy, create, and delete gists via the GitHub API. Moreover, it comes with an R Studio addin - a shiny app - to manage your Gists.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://edgar-treischl.github.io/gist/"><img src="plots/gist_logo.png" class="img-fluid figure-img" style="width:50.0%" alt="Gist R Package"></a></p>
+</figure>
 </div>
-<div id="ref-ggalluvial" class="csl-entry" role="listitem">
-Brunson, Jason Cory, and Quentin D. Read. 2020. <em>Ggalluvial: Alluvial
-Plots in Ggplot2</em>. <a href="https://CRAN.R-project.org/package=ggalluvial">https://CRAN.R-project.org/package=ggalluvial</a>.
+<p>This article outlines why GitHub Gist is a great tool for code snippets and how to use the gist package.</p>
+<section id="installation" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="installation"><span class="header-section-number">4.1</span> Installation</h2>
+<p>You can install the development version of gist like so:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"edgar-treischl/gist"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ref-ggbeeswarm" class="csl-entry" role="listitem">
-Clarke, Erik, and Scott Sherrill-Mix. 2017. <em>Ggbeeswarm: Categorical
-Scatter (Violin Point) Plots</em>. <a href="https://CRAN.R-project.org/package=ggbeeswarm">https://CRAN.R-project.org/package=ggbeeswarm</a>.
+<p>In order to connect with the Git Hub API, you need to provide a GitHub API token (names as: <code>github_api</code>) with the <code>keyring</code> package. Use the <code>key_set()</code> function to store your token safely:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Save GitHub API token as github_api</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>keyring<span class="sc">::</span><span class="fu">key_set</span>(<span class="at">service =</span> <span class="st">"github_api"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ref-keyring" class="csl-entry" role="listitem">
-Csárdi, Gábor. 2022. <span>“Keyring: Access the System Credential Store
-from r.”</span> <a href="https://CRAN.R-project.org/package=keyring">https://CRAN.R-project.org/package=keyring</a>.
+</section>
+<section id="workflow" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="workflow"><span class="header-section-number">4.2</span> Workflow</h2>
+<p>There is no need to learn how the package works, because it comes with an R Studio addin that let you manage Gists. Go to the addin menu or use the following code to open the gist app. The app shows a list with your gist files and a preview of the code. Pick a gist and copy or insert the code. Furthermore, the app has tabs to create and delete gists as well.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The gistAddin()</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gist)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>gist<span class="sc">::</span><span class="fu">gistAddin</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="ref-sqldf" class="csl-entry" role="listitem">
-Grothendieck, G. 2017. <span>“Sqldf: Manipulate r Data Frames Using
-SQL.”</span> <a href="https://CRAN.R-project.org/package=sqldf">https://CRAN.R-project.org/package=sqldf</a>.
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plots/gistapp.png" class="img-fluid figure-img" style="width:75.0%" alt="Gist App"></p>
+</figure>
 </div>
-<div id="ref-exams" class="csl-entry" role="listitem">
-Grün, Bettina, and Achim Zeileis. 2009. <span>“Automatic Generation of
-Exams in <span></span>r<span></span>”</span> 29. <a href="https://doi.org/10.18637/jss.v029.i10">https://doi.org/10.18637/jss.v029.i10</a>.
-</div>
-<div id="ref-palmerpenguins-2" class="csl-entry" role="listitem">
-Horst, Allison Marie, Alison Presmanes Hill, and Kristen B Gorman. 2020.
-<span>“Palmerpenguins: Palmer Archipelago (Antarctica) Penguin
-Data.”</span> <a href="https://doi.org/10.5281/zenodo.3960218">https://doi.org/10.5281/zenodo.3960218</a>.
-</div>
-<div id="ref-ggmosaic" class="csl-entry" role="listitem">
-Jeppson, Haley, Heike Hofmann, and Di Cook. 2021. <em>Ggmosaic: Mosaic
-Plots in the Ggplot2 Framework</em>. <a href="https://CRAN.R-project.org/package=ggmosaic">https://CRAN.R-project.org/package=ggmosaic</a>.
-</div>
-<div id="ref-ggmap2013" class="csl-entry" role="listitem">
-Kahle, David, and Hadley Wickham. 2013. <span>“Ggmap: Spatial
-Visualization with Ggplot2.”</span> <em>The R Journal</em> 5 (1):
-144–61. <a href="https://journal.r-project.org/archive/2013-1/kahle-wickham.pdf">https://journal.r-project.org/archive/2013-1/kahle-wickham.pdf</a>.
-</div>
-<div id="ref-ggmap" class="csl-entry" role="listitem">
-Kahle, David, Hadley Wickham, and Scott Jackson. 2019. <em>Ggmap:
-Spatial Visualization with Ggplot2</em>. <a href="https://CRAN.R-project.org/package=ggmap">https://CRAN.R-project.org/package=ggmap</a>.
-</div>
-<div id="ref-survminer" class="csl-entry" role="listitem">
-Kassambara, Alboukadel, Marcin Kosinski, and Przemyslaw Biecek. 2021.
-<em>Survminer: Drawing Survival Curves Using Ggplot2</em>. <a href="https://CRAN.R-project.org/package=survminer">https://CRAN.R-project.org/package=survminer</a>.
-</div>
-<div id="ref-ggwordcloud" class="csl-entry" role="listitem">
-Le Pennec, Erwan, and Kamil Slowikowski. 2022. <em>Ggwordcloud: A Word
-Cloud Geom for Ggplot2</em>.
-</div>
-<div id="ref-RSQLite" class="csl-entry" role="listitem">
-Müller, Kirill, Hadley Wickham, David A. James, and Seth Falcon. 2022.
-<em>RSQLite: SQLite Interface for r</em>. <a href="https://CRAN.R-project.org/package=RSQLite">https://CRAN.R-project.org/package=RSQLite</a>.
-</div>
-<div id="ref-ggcharts" class="csl-entry" role="listitem">
-Neitmann, Thomas. 2020. <em>Ggcharts: Shorten the Distance from Data
-Visualization Idea to Actual Plot</em>. <a href="https://CRAN.R-project.org/package=ggcharts">https://CRAN.R-project.org/package=ggcharts</a>.
-</div>
-<div id="ref-gganimate" class="csl-entry" role="listitem">
-Pedersen, Thomas Lin, and David Robinson. 2022. <em>Gganimate: A Grammar
-of Animated Graphics</em>. <a href="https://CRAN.R-project.org/package=gganimate">https://CRAN.R-project.org/package=gganimate</a>.
-</div>
-<div id="ref-DBI" class="csl-entry" role="listitem">
-R Special Interest Group on Databases (R-SIG-DB), Hadley Wickham, and
-Kirill Müller. 2022. <em>DBI: R Database Interface</em>. <a href="https://CRAN.R-project.org/package=DBI">https://CRAN.R-project.org/package=DBI</a>.
-</div>
-<div id="ref-waffle" class="csl-entry" role="listitem">
-Rudis, Bob, and Dave Gandy. 2017. <em>Waffle: Create Waffle Chart
-Visualizations in r</em>. <a href="https://CRAN.R-project.org/package=waffle">https://CRAN.R-project.org/package=waffle</a>.
-</div>
-<div id="ref-rstudioapi" class="csl-entry" role="listitem">
-Ushey, Kevin, JJ Allaire, Hadley Wickham, and Gary Ritchie. 2023.
-<span>“Rstudioapi: Safely Access the RStudio API.”</span> <a href="https://CRAN.R-project.org/package=rstudioapi">https://CRAN.R-project.org/package=rstudioapi</a>.
-</div>
-<div id="ref-tidyverse" class="csl-entry" role="listitem">
-Wickham, Hadley. 2022. <em>Tidyverse: Easily Install and Load the
-Tidyverse</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
-</div>
-<div id="ref-ggplot2" class="csl-entry" role="listitem">
-Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen,
-Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey
-Dunnington. 2022. <em>Ggplot2: Create Elegant Data Visualisations Using
-the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
-</div>
-<div id="ref-dplyr" class="csl-entry" role="listitem">
-Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis
-Vaughan. 2023. <span>“Dplyr: A Grammar of Data Manipulation.”</span> <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
-</div>
-<div id="ref-dbplyr" class="csl-entry" role="listitem">
-Wickham, Hadley, Maximilian Girlich, and Edgar Ruiz. 2022. <em>Dbplyr: A
-Dplyr Back End for Databases</em>. <a href="https://CRAN.R-project.org/package=dbplyr">https://CRAN.R-project.org/package=dbplyr</a>.
-</div>
-<div id="ref-ggtext" class="csl-entry" role="listitem">
-Wilke, Claus O. 2020. <em>Ggtext: Improved Text Rendering Support for
-’Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=ggtext">https://CRAN.R-project.org/package=ggtext</a>.
-</div>
-<div id="ref-ggridges" class="csl-entry" role="listitem">
-———. 2021. <em>Ggridges: Ridgeline Plots in ’Ggplot2’</em>. <a href="https://CRAN.R-project.org/package=ggridges">https://CRAN.R-project.org/package=ggridges</a>.
-</div>
-<div id="ref-treemapify" class="csl-entry" role="listitem">
-Wilkins, David. 2021. <em>Treemapify: Draw Treemaps in ’Ggplot2’</em>.
-<a href="https://CRAN.R-project.org/package=treemapify">https://CRAN.R-project.org/package=treemapify</a>.
+<p>If you want to interact via R, you can use the following functions. Create a new Gist via:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Create a gist</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gist_create</span>(<span class="at">name =</span> <span class="st">"A_Test.R"</span>, </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">code =</span> <span class="st">'#Test</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">            print("Hello world")'</span>, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">description =</span> <span class="st">"Test Gist"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] "TRUE"</code></pre>
 </div>
 </div>
+<p>Get a gist via:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#gistfiles lists all files and returns names and ids</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gist_get</span>(<span class="at">filename =</span> <span class="st">"A_Test.R"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; ✔ Copied A_Test.R from your GitHub account.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Set the <code>raw</code> parameter to <code>TRUE</code> in case you need the raw character vector. Finally, let us delete a gist. Therefore, you need to inspect your gists to get to know the id of a gist.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#gistFiles lists all files and returns names and ids</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mygists <span class="ot">&lt;-</span> gist<span class="sc">::</span><span class="fu">gistFiles</span>()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>mygists <span class="sc">|&gt;</span> <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;                  file                               id
+#&gt; 1            A_Test.R 85997f21bb7b086619c88ce4ccff5e03
+#&gt; 2        attachment.R 0daa7241e752a4c4f77ad0085b9d7694
+#&gt; 3             clear.R 27a596e3c9cf3b533936e771a01d840f
+#&gt; 4 cli_progress_step.R c0a0c0485afd7b0b48101e86a5dd1b3c
+#&gt; 5    dbi::dbConnect.R 330939119e04086d3a68a3c7662ad5a0
+#&gt; 6        dotwhisker.R 725f9b302453c9456e6dcc546760a0d4</code></pre>
+</div>
+</div>
+<p>To delete a gist, give the id the <code>gist_delete()</code> function.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Delete a gist</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>gist<span class="sc">::</span><span class="fu">gist_delete</span>(<span class="at">id =</span> mygists<span class="sc">$</span>id[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] "TRUE"</code></pre>
+</div>
+</div>
+<p>In summary, consider GitHub Gist if your code snippets are scattered somewhere on your computer. The gist package provides a simple way to manage your Gists and the R Studio addin makes it easy to get started.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -543,11 +536,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04_gist.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Manage Code Snippets with GitHub Gist</span></span>
+      <a href="./03_ggplot2_ext.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ten additional geoms for ggplot2</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

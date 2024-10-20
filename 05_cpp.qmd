@@ -1,0 +1,36 @@
+
+# C++ Basics 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+
+```
+
+
+## Hello World
+
+```{Rcpp}
+#include <Rcpp.h>
+using namespace Rcpp;
+// [[Rcpp::export]]
+NumericVector timesTwo(NumericVector x) {
+  return x * 2;
+}
+
+```
+
+
+```{r}
+timesTwo(42)
+```
+
+
+
+
+
+
+
+
+
+
+

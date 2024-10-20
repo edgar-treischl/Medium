@@ -20,17 +20,28 @@ source("source/03_plots.R")
 
 ```
 
-The `ggplot2` package provides many possibilities to visualize data and let you create visualizations from the ground. Moreover, there are plenty of `ggplot2` extensions packages that increase your possibilities and in this blog I concentrate on ten packages providing an additional geom. (1) I describe each visualization briefly. (2) I show an example graph. (3) I provide a minimal code snippet to recreate such a graph with implemented data. By relying on implemented data, there is no hassle of running many data preparation steps if you want to explore one of the packages on your own. Now, relax and get inspired by the many `ggplot2` authors and extensions.
+The `ggplot2` package is awesome to create visualizations. It offers a wide range of possibilities to create a lot visualizations, it even lets you create visualizations from the ground. Moreover, there are plenty of `ggplot2` extensions packages: `ggplot2` extensions are packages that provide additional geoms, stats, scales, and themes to `ggplot2`. These packages extend the possibilities of `ggplot2`.
+
+
+
+
+I introduce in this article ten packages that provide an additional geom. (1) I describe each visualization briefly. (2) I show an example graph. (3) I provide a minimal code snippet to recreate such a graph with implemented data. 
+
+By relying on implemented data, you can easily recreate the graph without the need download or prepare data. The minimal code snippets are a great starting point to explore the possibilities of the `ggplot2` extension packages.
+
+
 
 ## Alluvial
 
-Alluvial Diagrams are a great way to visualize the flow of data. For example, I used official data from German School Departments to depict the change of school types (downward and upward mobility) within a given year. As the plot shows, most pupils change to a lower school type and in consequence downward mobility is larger in Germany.
+Alluvial diagrams depict the flow of data between different categories. The width of the lines is proportional to the number of observations that flow from one category to another. For example, I used official data from German School Departments to depict the change of school types (downward and upward mobility) within a given year. As the plot shows, most pupils change to a lower school type and in consequence downward mobility is larger in Germany.
 
 ```{r Fig_731, echo=FALSE, eval=T, purl=FALSE}
 school_alluvial()
 ```
 
-The `ggalluvial` package provides an alluvial plot as an `ggplot2` extension [@ggalluvial]. The `geom_stratum()` function adds the stratum lines to the plot and the `geom_alluvium()` function fills the strata with the observed values. The minimal code example shows how to create an alluvial plot with the `titanic` data. The data must be in a wide format to work with.
+
+The `ggalluvial` package has implemented the `geom_alluvium()` and `geom_stratum()` functions to create alluvial plots [@ggalluvial]. The `geom_alluvium()` function creates the flow of data between categories, while the `geom_stratum()` function adds the categories to the plot. The minimal code example shows how to create an alluvial plot with the `titanic` data. Provide the data in a wide format.
+
 
 ```{r, results='hide', fig.keep='none'}
 #Minimal code example #####
@@ -48,13 +59,19 @@ ggplot(data = titanic_wide_format,
 
 ## Beeswarm plots
 
-Scatter plots are awesome to visualize the relationship between two numerical variables. However, if you have a lot of data points, over-plotting can be a problem. A beeswarm plot is a great alternative to scatter plots, because it decreases over-plotting by adding vertical noise. It is a categorical scatter plot that shows the distribution of a numerical variable for each category. For example, the following plot depicts body mass for each species and sex of the `palmerpenguins` data [@palmerpenguins-2].
+Scatter plots are often used to visualize the relationship between two numerical variables. However, scatter plots can be difficult to interpret when there are many data points. A beeswarm plot is a great alternative to scatter plots, because it avoids over-plotting. Essentially, the beeswarm plot spreads the data points along the axis to avoid overlapping. For example, the following plot depicts body mass for each species and sex of the `palmerpenguins` data [@palmerpenguins-2].
 
 ```{r Fig_732, eval=T, echo=FALSE, purl=FALSE}
 bees()
 ```
 
-The `ggbeeswarm` package provides the `geom_quasirandom()` function to create a beeswarm plot [@ggbeeswarm]. The function adds a little bit of noise to the x-axis to avoid over-plotting. You can pick the `method` argument to control the distribution of the points. Example methoda are `quasirandom`, `pseudorandom`, or `smiley`.
+
+
+
+Use the `geom_quasirandom()` function from the `ggbeeswarm` package to create a beeswarm plot [@ggbeeswarm]. The function spreads the data points along the axis to avoid overlapping. The `method` argument applies a specific algorithm to spread the data points. For example, pick `quasirandom`, `pseudorandom`, or `smiley`.
+
+
+
 
 ```{r  results='hide', fig.keep='none'}
 #Minimal code example #####
@@ -67,13 +84,7 @@ ggplot(penguins, aes(species, body_mass_g,
 
 ## Choropleth maps
 
-Create a choropleth map: a map that displays areas with different colors based on the observed value.
-
-
-
-The example shows the US unemployment rates in 2009. Creating a choropleth map is a bit more complicated than other plots, because you need to match the data with the geographical areas.
-
-The `ggplot2` package does not provide a function to create choropleth maps, but the `ggplot2` extension `ggplot2` provides the `geom_sf()` function to create such maps [@ggplot2]. The `sf` package is used to handle spatial data [@sf]. The minimal code example shows how to create a choropleth map with the `USArrests` data.
+A choropleth map is a great way to visualize geographical data. The color of each area is proportional to the observed value. The example plot shows the US unemployment rates in 2009.
 
 
 ```{r Fig_733, echo=FALSE, eval=T, purl=FALSE}
@@ -81,10 +92,13 @@ map_plot()
 
 ```
 
-In addition, the `ggmap` package helps to create maps [@ggmap; @ggmap2013], because we need to draw the shape of each area (e.g., country shape) first. The shape must be displayed by its longitude and latitude before we can fill the area or display numbers that describe the area. 
+Creating a choropleth map can be tricky, because you need to match the data with the corresponding geographical areas. 
 
 
-The minimal code does not need any additional package and shows an example from the `ggplot2` cheat sheet. If the corresponding geographical areas can be matched with the data, `geom_map()` draws the map and fills each area with the observed value.
+Moreover, the shape of the geographical areas must be drawn before filling them with the observed value. The `ggplot2` provides the `geom_sf()` function to create a map [@ggplot2]. The `sf` package is used to handle spatial data [@sf]. Moreover, the `ggmap` package helps to create maps [@ggmap; @ggmap2013], because it provides the `geom_map()` function. The function fills the geographical areas with the observed value.
+
+
+The minimal code example shows how to create a choropleth map with the `USArrests` data. The minimal code does not need any additional package and shows an example from the `ggplot2` cheat sheet. If the corresponding geographical areas can be matched with the data, `geom_map()` draws the map and fills each area.
 
 ```{r,  results='hide', fig.keep='none'}
 #Minimal code example #####
@@ -99,7 +113,7 @@ ggplot(data, aes(fill = murder))+
 
 ```
 
-## Dot-and-whisker plot
+## Dot-and-whisker plot: Copilot stopped here
 
 A dot-and-whisker plot is a plot that shows the point estimates and confidence intervals of regression coefficients. It is a useful tool for visualizing the uncertainty associated with regression estimates. In the example below, I just run an example analysis with the palmerpenguins data.
 

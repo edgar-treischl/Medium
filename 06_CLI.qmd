@@ -1,0 +1,147 @@
+# CLI Basics
+
+
+```{r setup, include=FALSE}
+has_bash <- Sys.which('bash') != '' && .Platform$OS.type != 'windows'
+```
+
+
+The command lines interface (CLI) is a powerful tool to interact with the computer and to automate tasks. CLI is also known as the terminal, shell, or console, depending on the operating system. The CLI is often used by system administrators, developers, and power users to perform tasks that are not possible or convenient with a graphical user interface (GUI). To put it differt, you may use a GUI to copy and paste files, but you may use the CLI to automate the process, search for files, and perform other tasks more efficiently.
+
+
+In this tutorial we will cover some basics of the CLI. We will cover the most common commands which are useful if you work with data. We will also cover how to redirect the output of a command to a file, count lines, words, and characters in a file, and display a CSV file in a tabular format.
+
+## Echo
+
+The `echo` command is used to print text to the terminal. 
+
+
+```{bash}
+#echo: print text to the terminal
+echo "Hello CLI "
+```
+
+
+We can use the `>` operator to redirect the output of a command to a file. For example, the following command will write the text "Hello CLI " to a file called `greeting.txt`. If you add a second `>` operator, the output will be appended to the file instead of overwriting it. Here we append the text "World". Finally, we use the `cat` command to display the contents of the file. The shell `cat` command is used to concatenate and display the content of files.
+
+```{bash}
+#redirect the output of a command to a file
+echo -n "Hello CLI " > greeting.txt
+#append the output
+echo "World" >> greeting.txt
+#cat: display the content of a file
+cat greeting.txt
+```
+
+
+## Pwd and ls
+
+The `pwd` command is used to print the current working directory. The `ls` command is used to list the files and directories in the current directory.
+
+
+```{bash}
+#pwd: print the current working directory
+pwd
+#ls: list the files and directories in the current directory
+ls
+```
+
+The `-l` option can be used to display the files and directories in a long listing format. The `head` command is used to display the first few lines of a file. The `|` operator is used to pipe the output of one command to another command. 
+
+
+```{bash}
+#: ls -l: list the files and directories in a long listing format
+ls -l | head
+```
+
+
+## Whoami and uname
+
+The `whoami` prints the username of the current user. The `uname -a` command is used to print the system information. The latter is short for "Unix name" and is used to print system information such as the operating system, kernel version, and hostname. The -a option is used to print all available information.
+
+```{bash}
+#whoami: print the username of the current user
+whoami
+```
+
+
+```{bash}
+#uname -a: print system information
+uname -a
+```
+
+
+
+## Curl
+
+The `curl` command is used to transfer data to or from a server. It supports a wide range of protocols, including HTTP, HTTPS, FTP, and SCP. The `curl` command is often used to download files from the internet, test APIs, and perform other network-related tasks. The `curl` command is a powerful tool with many options and features. You can use the `--help` option to display the help message and see the available options.
+
+
+```{bash}
+#curl: transfer data to or from a server
+curl --help
+```
+
+As the next console shows, the `tldr curl` command is used to display a simplified version. The `tldr` command is a community-driven project that provides simplified and practical examples of how to use various commands. The `tldr` command is a great resource for learning how to use commands quickly and efficiently.
+
+
+```{bash}
+#tldr: display a simplified version of the curl command
+tldr curl
+```
+
+Suppose we want to download a file from the internet using the `curl` command. In that case, we can use the `-O` option to save the file with the same name as the remote file. The following command will download the text file from the Gutenberg project and save it to the current directory. The `-s` option is used to silence the progress meter and other output. Moreover, the grep command is used to search for a specific pattern in the output. The following command will download the text file from the Gutenberg project, search for the word "CHAPTER," and display the lines that contain the word. 
+
+```{bash}
+#grep: search for a specific pattern in the output
+curl -s "https://www.gutenberg.org/files/11/11-0.txt" | grep " CHAPTER"
+```
+
+
+# Grep and wc
+
+Suppose we want to count how many chapters the book has. The `wc` command is used to count the number of lines, words, and characters in a file or output. The `-l` option specifies that we count the number of lines.
+
+```{bash}
+#wc: count the number of lines, words, and characters in a file or output
+curl -s "https://www.gutenberg.org/files/11/11-0.txt" |
+grep " CHAPTER" |
+wc -l 
+```
+
+Again, we can use the `>` operator to redirect the output of the command to a file. The following command will download the text file from the Gutenberg project, search for the word "CHAPTER," and save the saves the results as `chapters.txt`.
+
+```{bash}
+#Save the results to a file
+curl "https://www.gutenberg.org/files/11/11-0.txt" | grep " CHAPTER" > chapters.txt
+```
+
+
+## Csvlook
+
+The csvlook command is used to display a CSV file in a tabular format. The following command will display the first few lines of the `chapters.txt` file in a tabular format. 
+
+```{bash}
+#csvlook: display a CSV file in a tabular format
+csvlook chapters.txt
+```
+
+Let me give you one more for the road for R and Python users. There is no need to leave the R environment to use the CLI. The `system` command is used to execute a shell command from R. 
+
+```{r}
+#R system: execute a shell command from R
+system("echo 'Goodbye CLI'")
+```
+In Python, you can use the `subprocess` module to execute a shell command. The following Python code will execute the `echo 'Goodbye CLI'` command and print the output. 
+
+```{python}
+#Python subprocess: execute a shell command from Python
+import subprocess
+output = subprocess.check_output("echo 'Goodbye CLI'", shell=True)
+```
+
+
+In summary, the CLI is a versatile tool that can be used to perform a wide range of tasks efficiently and effectively. It is often used by system administrators, developers, and power users to perform tasks that are not convenient with a graphical user interface. In this tutorial, we covered some CLI basics, including the `echo`, `pwd`, `ls`, `whoami`, `uname`, `curl`, and `grep` commands. We also covered how to redirect the output of a command to a file, count lines, words, and characters in a file, and display a CSV file in a tabular format. 
+
+
+
