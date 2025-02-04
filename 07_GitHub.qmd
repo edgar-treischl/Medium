@@ -6,41 +6,45 @@ has_bash <- Sys.which('bash') != '' && .Platform$OS.type != 'windows'
 
 ## Introduction
 
-Git is a version control system that allows you to track changes in your code over time. It is a powerful tool to share your work, collaborate with others, and automate repetitive tasks. GitHub (also GitLab) is platform for developers to share their code, collaborate on projects, and build software. Foremost, it is a host for Git-based projects. Let me give one concrete example: Suppose you shared your code on GitHub. Of course, other people can download your code from your GitHub account, but they can also run your code directly in their R console. This is possible because of the `source_url` function from the `devtools` package allows you to run R code directly from a URL. The next time you make an update, your collegues can simply run the same code again and get the updated version:
+Git is a powerful version control system that enables you to track changes in your code over time. It’s an essential tool for sharing your work, collaborating with others, and automating repetitive tasks. GitHub (and GitLab) are platforms built around Git that allow developers to host, share, and collaborate on projects. At its core, GitHub serves as a repository for Git-based projects.
 
-```{r}
+Here’s a concrete example: Suppose you’ve shared your code on GitHub. While others can download the code, they can also run it directly in their R console. This is made possible by the `source_url` function from the `devtools` package, which allows you to execute R code directly from a URL. The next time you update your code, your colleagues can simply rerun the same command to access the latest version.
+
+```{r, message=FALSE, warning=FALSE}
+# Link to GitHub repository
 link <- paste0("https://raw.githubusercontent.com/",
                "edgar-treischl/edgar/refs/heads/",
-               "master/inst/graphs/long_wide.R")
+               "master/inst/graphs/pacman.R")
 
+# Source the code, show the plot from the source file
 devtools::source_url(link)
 showplot()
 ```
 
-Thus, Git is a must have tool for any data scientist and GitHub is game changer in many ways. This article introduces Git and GitHub to R users. Some R packages as well R Studio makes it in particular smooth to work with Git and GitHub and this article focus exactly on this point. If you are not an R user, consider reading a different introduction to Git. This article is structured as follows: First, I show the workaround to use Git and GitHub in RStudio. Next, I provide the basics commands to work and trouble-shoot with Git. Finally, I introduce Gist, a simple way to share code snippets.
+Git is an essential tool for any data scientist, and GitHub is a game-changer in many ways. This article introduces Git and GitHub to R users, focusing on how R packages and RStudio make it particularly easy to work with these tools. If you're not an R user, you may want to consult another introduction to Git.
 
-## Getting started
+The article is structured as follows: First, I’ll walk you through how to set up and use Git and GitHub in RStudio. Then, I’ll cover the basic Git commands you'll need to work with and troubleshoot version control. Finally, I’ll introduce Gist, a simple way to share code snippets.
 
-To get you started, we need three steps: First, we need to install Git on your local machine. Second, we need to create a GitHub account. Third, we need to connect Git(Hub) and R Studio.
+## Getting Started
+
+To get started with Git and GitHub, there are three key steps: First, you'll need to install Git on your local machine. Second, you’ll create a GitHub account. Finally, you’ll connect Git (and GitHub) with RStudio.
 
 ### Install Git
 
-Please find the installation instructions for your operating system below:
+Below are the installation instructions for different operating systems:
 
 -   Windows: https://git-scm.com/download/win
 -   OS X: https://git-scm.com/download/mac
 -   Debian/Ubuntu: sudo apt-get install git-core
 
-After you have installed Git, you can check if it was an success by typing `git --version` in your console. If all went well, it should return the installed version.
+After installing Git, you can check if the installation was successful by typing git --version in your console. If everything went well, it should return the installed version.
 
 ```{bash eval = has_bash}
-# I am git code to check if git is installed
-
 # Go to the console and type:
 git --version
 ```
 
-Next, you need to introduce yourself. Git needs to know who you are and how to reach you. Introduce your self via `git config` and set your user name and email address. You can do this either in the console or with the `usethis` package. The latter has more to than to introduce yourself and we will come back to the package in a minute.
+Next, you need to introduce yourself to Git. Git needs to know your identity to track changes properly and attribute them to you. You can do this by setting your username and email address with the git config command. You can configure this directly in the console or use the usethis package, which offers additional functionality for setting up your Git environment. We'll revisit the usethis package shortly.
 
 ``` bash
 # Set your user name and email address via bash
@@ -55,95 +59,187 @@ use_git_config(user.name = "Jane Doe",
                user.email = "jane@example.org")
 ```
 
-Check if the configuration was successful by typing `git config --global --list` in your console.
+To check if the configuration was successful, type git config --global --list in your console.
 
 ```{bash eval = has_bash}
 git config --global --list
 ```
 
-Before we can go on, we need get a bit more familiar with Git(Hub). Unfortunately, Git(Hub) is full of technical jargon and one of the reasons why Git might be a bit scary if you only just began. But don't worry, at this point we only need a first understanding of the most important terms:
+Before we continue, let's familiarize ourselves with some key Git/GitHub terminology. Git can seem a bit overwhelming at first, especially because of its technical jargon. But don't worry—at this stage, we only need a basic understanding of the most important terms:
 
--   **Repository**: A folder with all project files
--   **Push**: Send code (files) to Git
--   **Pull**: Get code (files) from a Git repository
--   **Commit**: A snapshot of a repository at a certain point in time
--   **Branch**: A parallel version within the repository to test new features
--   **Merge**: Combine two branches
--   **Merge conflicts**: When two branches have changed the same part of a file, Git will not be able to automatically determine what is correct
--   **Forks**: Forks are interconnected repositories, for example, to examine a repository from someone else
--   **Pull requests**: A way to suggest changes to a repository
+-   **Repository**: A folder that contains all the project files.
+-   **Push**: Uploading code (files) to a Git repository.
+-   **Pull**: Downloading code (files) from a Git repository.
+-   **Commit**: A snapshot of a repository at a specific point in time.
+-   **Branch**: A separate version of the repository used to test new features.
+-   **Merge**: Combining changes from two branches into one.
+-   **Merge conflicts**: Occur when two branches modify the same part of a file, and Git cannot automatically determine which version is correct.
+-   **Fork**: A copy of another repository, typically used to make changes to someone else's project.
+-   **Pull request**: A way to propose changes to a repository.
 
-Certainly, it does not come naturally to push and pull code, commit changes, or other terms, but we establish a deeper understanding if we put them into practice. Let's go on and create a free GitHub account:
+Certainly, pushing and pulling code, committing changes, and understanding other Git concepts may not come naturally at first. However, we’ll gain a deeper understanding by putting these concepts into practice. Let’s move on and create a free GitHub account:
 
 -   Windows: https://github.com/
 
-After you have created your account you need to connect GitHub and R Studio via a personal access token (PAT). You need to store the PAT in order to connect R Studio and GitHub.
+After creating your GitHub account, you'll need to connect GitHub and RStudio using a personal access token (PAT). It's important to store this PAT, as it will allow RStudio to authenticate with GitHub.
 
-
-
-The `usethis` package makes this quite easy. The `create_github_token()` function will open a browser window with the corresponding GitHub website (https://github.com/settings/tokens) to create a token. GitHub offers plenty of possibilities to create a token. You can set the token to expire after a certain time, you can limit the token to certain repositories, and you can limit the token to certain actions. For now, just create a token with the default settings.
+The `usethis` package makes this process easy. Using the `create_github_token()` function, a browser window will open, directing you to the GitHub token creation page (https://github.com/settings/tokens). GitHub provides various options for customizing your token. You can set it to expire after a certain time, restrict it to specific repositories, or limit it to certain actions. For now, simply create a token with the default settings.
 
 ```{r, eval=FALSE}
 # The create_github_token() function will open a browser window to create a token
 usethis::create_github_token()
 ```
 
-The `set_github_pat()` function from the `cdredentials` package will hand over your PAT if you connect to GitHub and store the token for. Run the function and paste your token in to the menu that pops up.
+The `set_github_pat()` function from the `credentials` package will help you connect to GitHub and store your PAT. Run the function and paste your token into the menu that pops up.
 
 ```{r, eval=FALSE}
 #The set_github_pat() function will store the token
 credentials::set_github_pat()
 ```
 
-
-Finally, check if R Studio is connected to GitHub with the `gh` package. The `gh_whoami()` function will show you who you are on GitHub.
+Finally, check if R Studio is connected to GitHub using the `gh` package. The `gh_whoami()` function will display your GitHub identity.
 
 ```{r}
 # Actually, whoami will show you who you are on GitHub ...
 gh::gh_whoami()
 ```
 
+If RStudio recognizes your GitHub identity, you're all set! The steps we just covered only need to be completed once. Now, let’s move on to using Git and GitHub in RStudio on a daily basis.
 
-If R Studio knows who you are on GitHub, you are ready to go. All the descriped last steps are past behind you and you only need to run them once. The next steps shows you how to work with Git and GitHub in R Studio on a daily basis.
-
-
-
-Go back to the GitHub website and create a new repository. The new repository is just a test repository. So, never mind about the options you have when you create a new repository. You can make it public or private, you can add a README file (for your future users), and you can add a license. For now, we just create a new repository without any additional options.
-
-
+First, go back to the GitHub website and create a new repository. This will be just a test repository, so don’t worry too much about the options available during setup. You can choose whether to make it public or private, add a README file (for future users), or include a license. For now, just create the repository without any additional options.
 
 ![](plots/07/Fig_0903.png)
 
-After you have created the repository, you will see the quick setup guide. The guide shows you how to connect your local repository with the remote repository on GitHub,  but we can connect via the *https* link. Just copy the link and go back to R Studio.
-
-
-
+After creating the repository, you'll see the quick setup guide. This guide shows you how to connect your local repository to the remote repository on GitHub, but for now, we’ll connect using the https link. Simply copy the link and return to RStudio.
 
 ![](plots/07/Fig_0904.png)
 
+To connect your local repository with the remote repository on GitHub, we need to clone it. Cloning essentially means copying the remote repository to your local machine. RStudio makes this process straightforward using the Project Wizard:
 
+1.  Create a new project in RStudio and click "Next."
+2.  Select "Version Control."
+3.  Choose "Git."
+4.  Paste the repository URL into the corresponding field to create the new project. The next image shows the final step only.
 
-In order to connect your local repository with the remote repository on GitHub, we need to clone it. Essentially cloning means that we copy the remote repository to our local machine. R Studio makes pretty straightforward if we use the Project Wizard: (1.) Create a new project in R Studio and click next. (2) Pick Version Control. (3) Pick Git. (4) Paste the repository URL into the corresponding field to create a new project. The next image shows the last step only.
+![](plots/07/Fig_0905.png){width="55%"}
 
-![](plots/07/Fig_0905.png)
-
-R Studio will clone the repository and the Git pane should be activated in the upper right corner (Restart R Studio and check the settings if the pane won't show up automatically). The Git pane makes the basic commands to work with Git available and it shows graphically the status of your repository. Your Git pane is still empty but if you start working on your project, R Studio shows the differences between the local and the remote repository. The next image shows the Git pane after you have made some changes to your project.
-
+R Studio will clone the repository, and the Git pane should appear in the upper right corner. If the pane doesn’t show up automatically, try restarting RStudio and checking your settings. The Git pane provides easy access to basic Git commands and visually displays the status of your repository. Initially, your Git pane will be empty, but as you begin working on your project, RStudio will show the differences between your local and remote repositories. The next image illustrates the Git pane after you’ve made changes to your project.
 
 ![](plots/07/Fig_0906.png)
 
-So, create a new R script, insert some code, and save the script. The new file should appear in the Git pane and R Studio will mark it with a yellow with a question mark, because it can't be tracked and it will become a teal A (for added file) if we stage the file. We will learn what that means in a minute. As the last images highlighted, same happens if you modify, delete a file, or rename a file.
+First, create a new R script, insert some code, and save the script. The new file should appear in the Git pane, marked with a yellow question mark. This indicates that the file isn’t being tracked yet. Once you stage the file, it will be marked with a teal "A" (for added file). We’ll explore what this means shortly. As highlighted in the last image, the same happens if you modify, delete, or rename a file.
 
-Now that we worked on the project, how do we save the changes and push them to the remote repository? After you created and saved a new file, you have to stage the file. Staging means that you tell Git to track the file. You can stage a file by clicking on the check box in the Git pane. Next we add a commit message. A commit message is a short description of the changes you made. It is good practice to write a short but meaningful commit message. If you are happy with your commit message, you can commit the changes by clicking on the commit button. To commit means that you save the changes of the last steps locally. Finally, you can push the changes to the remote repository on GitHub via the push button. The next image shows the described steps in the Git pane.
+Now that you've worked on your project, how do you save your changes and push them to the remote repository? After creating and saving a new file, you need to stage it. Staging tells Git to track the file. You can do this by checking the box in the Git pane. Next, you’ll add a commit message. A commit message is a short description of the changes you’ve made, and it’s good practice to write something meaningful yet concise. Once you’re satisfied with your message, click the "Commit" button to save your changes locally. Finally, you can push your changes to the remote repository on GitHub by clicking the "Push" button. The next image shows these steps in the Git pane.
 
 ![](plots/07/Fig_0907.png)
 
-If everything works out, a 
+Git will inform you with a cryptic message if your push attempt is successful. This message includes the commit hash (which uniquely identifies each commit) and the branch to which the changes were pushed.
 
+``` bash
+To https://github.com/your_username/your_repository.git
+   abc1234..def5678  main -> main
+```
 
+Go ahead and inspect your GitHub repository to confirm that the changes were successfully pushed. If the push was successful, the next section will introduce you to the most basic Git commands for working with GitHub. When you click a button in the Git pane, RStudio runs the corresponding Git commands in the background, and learning a few basic commands is all you need to effectively work with Git.
 
-### Why Hosts like GitHub?
+## Basic Git commands
 
--   Websites for projects
+We can skip the initial steps, as we've already covered how to initialize a new repository and clone it. Programmatically, you would run:
 
--   ...
+``` bash
+# Initialize a new repository
+git init <your repository name>
+
+# Clone a repository
+git clone <git-repo-url>
+```
+
+Use `git branch` to create a new branch, or add the `--list` option to view all existing branches.
+
+``` bash
+# Create a new branch
+git branch <branch-name>
+
+# List all branches
+git branch --list
+```
+
+Delete a branch with `git branch -d <branch-name>`, and switch to a different branch using `git checkout`.
+
+``` bash
+# Delete a branch
+git branch -d <branch-name>
+
+# Switch to a branch
+git checkout <branch-name>
+```
+
+Add a file to the staging area with `git add <file>`, or stage all files with `git add -A`.
+
+``` bash
+# Add a file to the staging area
+git add <file>
+
+# Add All files to the staging area
+git add -A
+```
+
+Commit changes with `git commit`. The `-am` option is a shortcut for `git add -A` followed by `git commit -m`. Push changes to the remote repository with `git push <remote> <branch-name>`.
+
+``` bash
+# Commit changes
+git commit -am <commit-message>
+
+# Push changes to the remote rep
+git push <remote> <branch-name>
+```
+
+Keep in mind that if you're collaborating with others, you’ll need to pull changes from the remote repository. Use the `git pull` command to fetch and merge changes from the remote repository into your local one. If you're working on a branch and want to merge it with the main branch, you can use the `git merge <branch-name>` command.
+
+``` bash
+# Pull changes from the remote rep
+git pull
+
+# Merge two branches
+git merge <branch-name>
+```
+
+You might be wondering, do you need all this code if you're happy with the Git pane? While the pane simplifies common Git operations, using Git commands gives you more control, flexibility, and the ability to manage more complex tasks. For instance, merge conflicts can occur when two branches modify the same part of a file, and Git won’t be able to automatically resolve the conflict. Git commands provide a more detailed understanding of where the conflicts are happening, which is especially useful when the conflict isn’t easy to resolve. So, it’s worth learning the commands, particularly for troubleshooting.
+
+Use `git blame` to see who changed what and when, `git status` to view the working tree status, and `git diff` to inspect the differences between commits.
+
+``` bash
+# Show who changed what and when
+git blame file.txt
+
+# Shows the working tree status
+git status
+
+# Shows changes between commits
+git diff
+```
+
+Be cautious when reverting or discarding changes! The `git revert` command creates a new commit that undoes changes from a previous commit. The `git reset` command resets the repository to a previous commit. And as a last resort, the `git reset --hard` command forcefully discards any local changes. Keep in mind, once you discard changes, there’s no way to recover them.
+
+``` bash
+# 💀💀💀 DANGER
+# Revert some existing commits
+git revert SHA
+
+# Reset the repository to a previous commit 
+# Take care: This will discard any local changes
+git reset 
+
+# Ultima ratio only
+# A "hard reset": forcefully discard any local changes
+```
+
+Before attempting to reset, take a look at the commit history in RStudio. The commit history provides a detailed view of what changes were made and when. It’s a powerful tool for inspecting changes, identifying issues, and reverting changes if necessary.
+
+![](plots/07/Fig_0908.png)
+
+Finally, here’s one last tool to consider: GitHub Gist. Gist is a service provided by GitHub that allows you to share and store code snippets, text, or other types of files. It not only enables you to share code without creating a full repository, but also lets you embed code snippets in a blog post or website. Gist is an excellent tool for saving your own code snippets that might otherwise get lost or clutter your workspace.
+
+I even created an R package that allows you to work with GitHub Gist natively from R. The `gist` package provides a set of functions to manage your GitHub Gists, allowing you to copy, create, and delete gists via the GitHub API. Moreover, it comes with an RStudio addin that allows you to easily create, delete, or copy one of your existing Gists with the click of a button. The next image shows the Gist addin in action.
+
+![](plots/07/gistapp.png){width="55%"}

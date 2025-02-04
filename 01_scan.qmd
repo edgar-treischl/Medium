@@ -22,7 +22,7 @@ In order to use exams, we need to setup a folder that contains all the question 
 
 Before we can start to create the exam, we need exercises or exam questions and the package provides a list of exercises files that we can download on the website. Make a new folder where all the files will be stored. Copy the exercises from the website and save them in a new folder named exercises. Next, create a new R script, install and load the library.
 
-```{r}
+```{r, eval=FALSE}
 #install.packages("exams")
 library(exams)
 ```
