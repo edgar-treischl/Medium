@@ -6,9 +6,11 @@ has_bash <- Sys.which('bash') != '' && .Platform$OS.type != 'windows'
 
 ## Introduction
 
-Git is a powerful version control system that enables you to track changes in your code over time. It’s an essential tool for sharing your work, collaborating with others, and automating repetitive tasks. GitHub (and GitLab) are platforms built around Git that allow developers to host, share, and collaborate on projects. At its core, GitHub serves as a repository for Git-based projects.
+Git is a powerful version control system to track changes in code over time. It’s an essential tool for sharing work, collaborating with others, and automating repetitive tasks. GitHub (and GitLab) are platforms built around Git that allow developers to host, share, and collaborate on projects. At its core, GitHub serves as a repository for Git-based projects.
 
-Here’s a concrete example: Suppose you’ve shared your code on GitHub. While others can download the code, they can also run it directly in their R console. This is made possible by the `source_url` function from the `devtools` package, which allows you to execute R code directly from a URL. The next time you update your code, your colleagues can simply rerun the same command to access the latest version.
+Learning Git can be intimidating, especially for beginners. However, R users have a head start because R packages and RStudio make it easy to work with Git and GitHub. For example, R packages like `usethis` and `devtools` provide functions to set up Git, create repositories, and share code. RStudio, on the other hand, offers a Git pane that simplifies common Git operations, such as staging, committing, and pushing changes. If you work with Code on a daily basis there is no doubt, you should consider learning Git. 
+
+For example: Suppose you’ve shared your code on GitHub. While others can download the code, they can also run it directly in their R console. This makes the `source_url()` function from the `devtools` package possible, which allows you to execute R code directly from a URL. The next time you update your code, your colleagues can rerun the code to get access the latest version. As the next code chunk demonstrates, `pacman.R` live in my GitHub account and creates a plot when sourced.
 
 ```{r, message=FALSE, warning=FALSE}
 # Link to GitHub repository
@@ -21,13 +23,13 @@ devtools::source_url(link)
 showplot()
 ```
 
-Git is an essential tool for any data scientist, and GitHub is a game-changer in many ways. This article introduces Git and GitHub to R users, focusing on how R packages and RStudio make it particularly easy to work with these tools. If you're not an R user, you may want to consult another introduction to Git.
+Git is an essential tool for any data scientist, and GitHub is a game-changer in many ways. This article introduces Git and GitHub to R users, focusing on how R packages and RStudio make it particularly easy to work with these tools. If you're not an R user, don't worry! The concepts and tools introduced here are applicable to any programming language.
 
-The article is structured as follows: First, I’ll walk you through how to set up and use Git and GitHub in RStudio. Then, I’ll cover the basic Git commands you'll need to work with and troubleshoot version control. Finally, I’ll introduce Gist, a simple way to share code snippets.
+The article is structured as follows: First, we inspect how to set up and use Git and GitHub in RStudio. Then, I’ll cover the most important Git basic with a focus on troubleshooting. Finally, I’ll introduce (GitHub) Gist, a simple way to share code snippets.
 
 ## Getting Started
 
-To get started with Git and GitHub, there are three key steps: First, you'll need to install Git on your local machine. Second, you’ll create a GitHub account. Finally, you’ll connect Git (and GitHub) with RStudio.
+To get started with Git and GitHub, there are three key steps: First, install Git on your local machine. Second, create a GitHub account. Finally, connect RStudio   with GitHub.
 
 ### Install Git
 
@@ -37,7 +39,7 @@ Below are the installation instructions for different operating systems:
 -   OS X: https://git-scm.com/download/mac
 -   Debian/Ubuntu: sudo apt-get install git-core
 
-After installing Git, you can check if the installation was successful by typing git --version in your console. If everything went well, it should return the installed version.
+After installing Git, you can check if the installation was successful by typing `git --version` into the console. It should return the installed version if everything went well.
 
 ```{bash eval = has_bash}
 # Go to the console and type:

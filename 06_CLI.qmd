@@ -6,30 +6,38 @@ has_bash <- Sys.which('bash') != '' && .Platform$OS.type != 'windows'
 ```
 
 
-The command lines interface (CLI) is a powerful tool to interact with the computer and to automate tasks. CLI is also known as the terminal, shell, or console, depending on the operating system. The CLI is often used by system administrators, developers, and power users to perform tasks that are not possible or convenient with a graphical user interface (GUI). To put it differt, you may use a GUI to copy and paste files, but you may use the CLI to automate the process, search for files, and perform other tasks more efficiently.
+The Command Line Interface (CLI) is a powerful tool for interacting with computers and automating tasks. Also known as the terminal, shell, or console (depending on the operating system), the CLI is widely used by system administrators, developers, and power users to perform tasks that are either impossible or inefficient with a Graphical User Interface (GUI).
+
+In contrast to a GUI—where you might manually copy and paste files—the CLI enables you to automate processes, quickly search for files, and execute complex tasks with greater efficiency.
 
 
-In this tutorial we will cover some basics of the CLI. We will cover the most common commands which are useful if you work with data. We will also cover how to redirect the output of a command to a file, count lines, words, and characters in a file, and display a CSV file in a tabular format.
+In this article, we'll explore the basics of the Command Line Interface (CLI) and cover essential commands that are particularly useful for data-related tasks. We will also dive into how to redirect command output to a file, count lines, words, and characters within a file, and display a CSV file in a neat, tabular format.
 
 ## Echo
 
 The `echo` command is used to print text to the terminal. 
 
+The `echo` command is used to display text or output to the terminal. It's often used for printing simple messages or checking the result of a command, making it a versatile tool for both beginners and advanced users.
+
 
 ```{bash}
-#echo: print text to the terminal
+# Say hello to CLI
 echo "Hello CLI "
 ```
 
 
 We can use the `>` operator to redirect the output of a command to a file. For example, the following command will write the text "Hello CLI " to a file called `greeting.txt`. If you add a second `>` operator, the output will be appended to the file instead of overwriting it. Here we append the text "World". Finally, we use the `cat` command to display the contents of the file. The shell `cat` command is used to concatenate and display the content of files.
 
+We can use the `>` operator to redirect the output of a command to a file. For instance, the following command will write the text `Hello CLI` to a file named greeting.txt. If you use a second `>` operator (`>>`), the output will be appended to the file instead of overwriting it. Here, we append the text "World". Finally, we use the `cat` command to display the file's contents. The `cat` command is commonly used to concatenate and display the contents of files.
+
 ```{bash}
-#redirect the output of a command to a file
+# Redirect the output of a command to a file
 echo -n "Hello CLI " > greeting.txt
-#append the output
+
+# Append the output
 echo "World" >> greeting.txt
-#cat: display the content of a file
+
+# Display the content of the file
 cat greeting.txt
 ```
 
@@ -38,35 +46,39 @@ cat greeting.txt
 
 The `pwd` command is used to print the current working directory. The `ls` command is used to list the files and directories in the current directory.
 
+The `pwd` command prints the current working directory, while the `ls` command lists the files and directories in the current directory.
+
 
 ```{bash}
-#pwd: print the current working directory
+# pwd: Print the current working directory
 pwd
-#ls: list the files and directories in the current directory
+
+# ls: List the files and directories in the current directory
 ls
 ```
 
-The `-l` option can be used to display the files and directories in a long listing format. The `head` command is used to display the first few lines of a file. The `|` operator is used to pipe the output of one command to another command. 
+
+The `-l` option can be added to ls to display the files and directories in a long listing format. Additionally, the `head` command shows the first few lines of a file or output. The `|` (pipe) operator allows you to pass the output of one command as input to another.
 
 
 ```{bash}
-#: ls -l: list the files and directories in a long listing format
+# ls -l: List files and directories in long format, then pipe the output to head
 ls -l | head
 ```
 
 
 ## Whoami and uname
 
-The `whoami` prints the username of the current user. The `uname -a` command is used to print the system information. The latter is short for "Unix name" and is used to print system information such as the operating system, kernel version, and hostname. The -a option is used to print all available information.
+The `whoami` command prints the username of the current user. On the other hand, the `uname -a` command displays detailed system information, including the operating system, kernel version, and hostname. The -a option stands for "all" and ensures all available information is shown.
 
 ```{bash}
-#whoami: print the username of the current user
+# whoami: Print the username of the current user
 whoami
 ```
 
 
 ```{bash}
-#uname -a: print system information
+# uname -a: Print detailed system information
 uname -a
 ```
 
@@ -74,74 +86,88 @@ uname -a
 
 ## Curl
 
-The `curl` command is used to transfer data to or from a server. It supports a wide range of protocols, including HTTP, HTTPS, FTP, and SCP. The `curl` command is often used to download files from the internet, test APIs, and perform other network-related tasks. The `curl` command is a powerful tool with many options and features. You can use the `--help` option to display the help message and see the available options.
+The `curl` command is used to transfer data to or from a server. It supports a variety of protocols, including HTTP, HTTPS, FTP, and SCP. Commonly, `curl` is used to download files from the internet, test APIs, and perform other network-related tasks. With its wide array of options and features, `curl` is a powerful tool. To view available options and get more information, you can use the `--help` option to display the help message.
+
 
 
 ```{bash}
-#curl: transfer data to or from a server
+# curl: Transfer data to or from a server
 curl --help
 ```
 
 As the next console shows, the `tldr curl` command is used to display a simplified version. The `tldr` command is a community-driven project that provides simplified and practical examples of how to use various commands. The `tldr` command is a great resource for learning how to use commands quickly and efficiently.
 
+As shown in the following example, the `tldr curl` command provides a simplified version of the `curl` command. The `tldr` command is part of a community-driven project that offers practical, easy-to-understand examples for various commands. It’s a great resource for quickly learning how to use commands efficiently.
 
 ```{bash}
-#tldr: display a simplified version of the curl command
+# tldr: Display a simplified version of the curl command
 tldr curl
 ```
 
-Suppose we want to download a file from the internet using the `curl` command. In that case, we can use the `-O` option to save the file with the same name as the remote file. The following command will download the text file from the Gutenberg project and save it to the current directory. The `-s` option is used to silence the progress meter and other output. Moreover, the grep command is used to search for a specific pattern in the output. The following command will download the text file from the Gutenberg project, search for the word "CHAPTER," and display the lines that contain the word. 
+To download a file from the internet using `curl`, we can use the `-O` option, which saves the file with the same name as the remote file. The following command downloads a text file from the Gutenberg Project and saves it to the current directory. The `-s` option silences the progress meter and other output.
+
+Additionally, we can use the `grep` command to search for a specific pattern in the output. The following command downloads the text file, searches for the word "CHAPTER," and displays all lines containing that word.
 
 ```{bash}
-#grep: search for a specific pattern in the output
+# grep: search for a specific pattern in the output
 curl -s "https://www.gutenberg.org/files/11/11-0.txt" | grep " CHAPTER"
 ```
 
 
 # Grep and wc
 
-Suppose we want to count how many chapters the book has. The `wc` command is used to count the number of lines, words, and characters in a file or output. The `-l` option specifies that we count the number of lines.
+Suppose we want to count how many chapters a book has. The `wc` (word count) command is used to count the number of lines, words, and characters in a file or output. To count the number of lines, we can use the `-l` option. By combining `grep` with `wc`, we can count the number of lines that match a specific pattern — in this case, the number of chapters in the book.
+
 
 ```{bash}
-#wc: count the number of lines, words, and characters in a file or output
+# wc: Count the number of lines, words, and characters in a file or output
 curl -s "https://www.gutenberg.org/files/11/11-0.txt" |
 grep " CHAPTER" |
 wc -l 
 ```
 
-Again, we can use the `>` operator to redirect the output of the command to a file. The following command will download the text file from the Gutenberg project, search for the word "CHAPTER," and save the saves the results as `chapters.txt`.
+
+In this case, the command will download the text file, search for lines containing the word "CHAPTER," and count how many such lines exist.
+
+We can also use the `>` operator to redirect the output of the command to a file. The following command downloads the text file from the Gutenberg project, searches for the word "CHAPTER," and saves the results in `chapters.txt`.
 
 ```{bash}
-#Save the results to a file
+# Save the results to a file
 curl "https://www.gutenberg.org/files/11/11-0.txt" | grep " CHAPTER" > chapters.txt
 ```
 
 
 ## Csvlook
 
-The csvlook command is used to display a CSV file in a tabular format. The following command will display the first few lines of the `chapters.txt` file in a tabular format. 
+
+
+The `csvlook` command is used to display a CSV file in a tabular format. The following command will display the contents of the `chapters.txt` file in a clean, tabular layout.
 
 ```{bash}
-#csvlook: display a CSV file in a tabular format
+# csvlook: Display a CSV file in a tabular format
 csvlook chapters.txt
 ```
 
-Let me give you one more for the road for R and Python users. There is no need to leave the R environment to use the CLI. The `system` command is used to execute a shell command from R. 
+There's no need to leave the R environment to use the CLI. The `system` function in R allows you to execute shell commands directly from within R.
 
 ```{r}
-#R system: execute a shell command from R
+# R system: Execute a shell command from R
 system("echo 'Goodbye CLI'")
 ```
-In Python, you can use the `subprocess` module to execute a shell command. The following Python code will execute the `echo 'Goodbye CLI'` command and print the output. 
+
+
+
+In Python, you can use the `subprocess` module to run shell commands. The following Python code will execute the echo command and print the output.
 
 ```{python}
-#Python subprocess: execute a shell command from Python
+# Python subprocess: Execute a shell command from Python
 import subprocess
 output = subprocess.check_output("echo 'Goodbye CLI'", shell=True)
+print(output.decode())
 ```
 
 
-In summary, the CLI is a versatile tool that can be used to perform a wide range of tasks efficiently and effectively. It is often used by system administrators, developers, and power users to perform tasks that are not convenient with a graphical user interface. In this tutorial, we covered some CLI basics, including the `echo`, `pwd`, `ls`, `whoami`, `uname`, `curl`, and `grep` commands. We also covered how to redirect the output of a command to a file, count lines, words, and characters in a file, and display a CSV file in a tabular format. 
+In summary, the CLI is a powerful and versatile tool that enables you to perform a wide range of tasks efficiently and effectively. It’s commonly used by system administrators, developers, and power users to accomplish tasks that are often more difficult or time-consuming with a graphical user interface. In this article, we covered several CLI basics, including the `echo`, `pwd`, `ls`, `whoami`, `uname`, `curl`, and `grep` commands. We also explored how to redirect the output of a command to a file, count lines, words, and characters in a file, and display a CSV file in a neat, tabular format.
 
 
 

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.555">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>github</title>
+<title>7&nbsp; Git(Hub): A Gentle Introduction for R Users – Medium Articles</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -57,35 +57,206 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="07_GitHub_files/libs/clipboard/clipboard.min.js"></script>
-<script src="07_GitHub_files/libs/quarto-html/quarto.js"></script>
-<script src="07_GitHub_files/libs/quarto-html/popper.min.js"></script>
-<script src="07_GitHub_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="07_GitHub_files/libs/quarto-html/anchor.min.js"></script>
-<link href="07_GitHub_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="07_GitHub_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="07_GitHub_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="07_GitHub_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="07_GitHub_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./06_cli.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-11d96894dd7817e82423dfd1eea0dc7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+</head><body class="nav-sidebar floating"><div id="progress-bar" style="width: 0%; height:2px; background-color: rgb(89 127 235);; position: fixed; top: 0px; z-index: 2000;"></div>
+
+<script id="progressbar" type="text/javascript">
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const bar = document.querySelector('#progress-bar');
+    const post = document.querySelector('#quarto-content');
+    const html = document.documentElement;
+    
+    const height = post.scrollHeight + post.offsetTop;
+    
+    window.addEventListener('scroll', () => {
+        bar.style.width = (html.scrollTop / (height- html.clientHeight)) * 100 + '%';
+    });
+});
+</script>
 
 
-</head>
 
-<body class="fullcontent">
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07_GitHub.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Git(Hub): A Gentle Introduction for R Users</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Medium Articles</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_scan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Create, scan, and correct exams with R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_master_sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Master SQL with R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_ggplot2_ext.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ten additional geoms for ggplot2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_gist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Manage Code Snippets with GitHub Gist</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_cpp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">C++ Basics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_cli.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CLI Basics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_GitHub.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Git(Hub): A Gentle Introduction for R Users</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">7.1</span> Introduction</a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">7.2</span> Getting Started</a>
+  <ul class="collapse">
+  <li><a href="#install-git" id="toc-install-git" class="nav-link" data-scroll-target="#install-git"><span class="header-section-number">7.2.1</span> Install Git</a></li>
+  </ul></li>
+  <li><a href="#basic-git-commands" id="toc-basic-git-commands" class="nav-link" data-scroll-target="#basic-git-commands"><span class="header-section-number">7.3</span> Basic Git commands</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Git(Hub): A Gentle Introduction for R Users</span></h1>
+</div>
 
 
 
-<section id="github-a-gentle-introduction-for-r-users" class="level1">
-<h1>Git(Hub): A Gentle Introduction for R Users</h1>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Git is a powerful version control system that enables you to track changes in your code over time. It’s an essential tool for sharing your work, collaborating with others, and automating repetitive tasks. GitHub (and GitLab) are platforms built around Git that allow developers to host, share, and collaborate on projects. At its core, GitHub serves as a repository for Git-based projects.</p>
-<p>Here’s a concrete example: Suppose you’ve shared your code on GitHub. While others can download the code, they can also run it directly in their R console. This is made possible by the <code>source_url</code> function from the <code>devtools</code> package, which allows you to execute R code directly from a URL. The next time you update your code, your colleagues can simply rerun the same command to access the latest version.</p>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">7.1</span> Introduction</h2>
+<p>Git is a powerful version control system to track changes in code over time. It’s an essential tool for sharing work, collaborating with others, and automating repetitive tasks. GitHub (and GitLab) are platforms built around Git that allow developers to host, share, and collaborate on projects. At its core, GitHub serves as a repository for Git-based projects.</p>
+<p>Learning Git can be intimidating, especially for beginners. However, R users have a head start because R packages and RStudio make it easy to work with Git and GitHub. For example, R packages like <code>usethis</code> and <code>devtools</code> provide functions to set up Git, create repositories, and share code. RStudio, on the other hand, offers a Git pane that simplifies common Git operations, such as staging, committing, and pushing changes. If you work with Code on a daily basis there is no doubt, you should consider learning Git.</p>
+<p>For example: Suppose you’ve shared your code on GitHub. While others can download the code, they can also run it directly in their R console. This makes the <code>source_url()</code> function from the <code>devtools</code> package possible, which allows you to execute R code directly from a URL. The next time you update your code, your colleagues can rerun the code to get access the latest version. As the next code chunk demonstrates, <code>pacman.R</code> live in my GitHub account and creates a plot when sourced.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Link to GitHub repository</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>link <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://raw.githubusercontent.com/"</span>,</span>
@@ -103,38 +274,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Git is an essential tool for any data scientist, and GitHub is a game-changer in many ways. This article introduces Git and GitHub to R users, focusing on how R packages and RStudio make it particularly easy to work with these tools. If you’re not an R user, you may want to consult another introduction to Git.</p>
-<p>The article is structured as follows: First, I’ll walk you through how to set up and use Git and GitHub in RStudio. Then, I’ll cover the basic Git commands you’ll need to work with and troubleshoot version control. Finally, I’ll introduce Gist, a simple way to share code snippets.</p>
+<p>Git is an essential tool for any data scientist, and GitHub is a game-changer in many ways. This article introduces Git and GitHub to R users, focusing on how R packages and RStudio make it particularly easy to work with these tools. If you’re not an R user, don’t worry! The concepts and tools introduced here are applicable to any programming language.</p>
+<p>The article is structured as follows: First, we inspect how to set up and use Git and GitHub in RStudio. Then, I’ll cover the most important Git basic with a focus on troubleshooting. Finally, I’ll introduce (GitHub) Gist, a simple way to share code snippets.</p>
 </section>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting Started</h2>
-<p>To get started with Git and GitHub, there are three key steps: First, you’ll need to install Git on your local machine. Second, you’ll create a GitHub account. Finally, you’ll connect Git (and GitHub) with RStudio.</p>
-<section id="install-git" class="level3">
-<h3 class="anchored" data-anchor-id="install-git">Install Git</h3>
+<section id="getting-started" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">7.2</span> Getting Started</h2>
+<p>To get started with Git and GitHub, there are three key steps: First, install Git on your local machine. Second, create a GitHub account. Finally, connect RStudio with GitHub.</p>
+<section id="install-git" class="level3" data-number="7.2.1">
+<h3 data-number="7.2.1" class="anchored" data-anchor-id="install-git"><span class="header-section-number">7.2.1</span> Install Git</h3>
 <p>Below are the installation instructions for different operating systems:</p>
 <ul>
 <li>Windows: https://git-scm.com/download/win</li>
 <li>OS X: https://git-scm.com/download/mac</li>
 <li>Debian/Ubuntu: sudo apt-get install git-core</li>
 </ul>
-<p>After installing Git, you can check if the installation was successful by typing git –version in your console. If everything went well, it should return the installed version.</p>
+<p>After installing Git, you can check if the installation was successful by typing <code>git --version</code> into the console. It should return the installed version if everything went well.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Go to the console and type:</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>git version 2.39.5 (Apple Git-154)</code></pre>
+</div>
 </div>
 <p>Next, you need to introduce yourself to Git. Git needs to know your identity to track changes properly and attribute them to you. You can do this by setting your username and email address with the git config command. You can configure this directly in the console or use the usethis package, which offers additional functionality for setting up your Git environment. We’ll revisit the usethis package shortly.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your user name and email address via bash</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"User Name"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"email@adress.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your user name and email address via bash</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"User Name"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"email@adress.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your user name and email address via R</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"Jane Doe"</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">user.email =</span> <span class="st">"jane@example.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your user name and email address via R</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"Jane Doe"</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">user.email =</span> <span class="st">"jane@example.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To check if the configuration was successful, type git config –global –list in your console.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+user.name=Edgar Treischl
+user.email=77931249+edgar-treischl@users.noreply.github.com
+core.excludesfile=~/.gitignore</code></pre>
+</div>
 </div>
 <p>Before we continue, let’s familiarize ourselves with some key Git/GitHub terminology. Git can seem a bit overwhelming at first, especially because of its technical jargon. But don’t worry—at this stage, we only need a basic understanding of the most important terms:</p>
 <ul>
@@ -155,25 +338,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>After creating your GitHub account, you’ll need to connect GitHub and RStudio using a personal access token (PAT). It’s important to store this PAT, as it will allow RStudio to authenticate with GitHub.</p>
 <p>The <code>usethis</code> package makes this process easy. Using the <code>create_github_token()</code> function, a browser window will open, directing you to the GitHub token creation page (https://github.com/settings/tokens). GitHub provides various options for customizing your token. You can set it to expire after a certain time, restrict it to specific repositories, or limit it to certain actions. For now, simply create a token with the default settings.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The create_github_token() function will open a browser window to create a token</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The create_github_token() function will open a browser window to create a token</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The <code>set_github_pat()</code> function from the <code>credentials</code> package will help you connect to GitHub and store your PAT. Run the function and paste your token into the menu that pops up.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The set_github_pat() function will store the token</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>credentials<span class="sc">::</span><span class="fu">set_github_pat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The set_github_pat() function will store the token</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>credentials<span class="sc">::</span><span class="fu">set_github_pat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Finally, check if R Studio is connected to GitHub using the <code>gh</code> package. The <code>gh_whoami()</code> function will display your GitHub identity.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Actually, whoami will show you who you are on GitHub ...</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>gh<span class="sc">::</span><span class="fu">gh_whoami</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Actually, whoami will show you who you are on GitHub ...</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>gh<span class="sc">::</span><span class="fu">gh_whoami</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{
   "name": "Edgar Treischl",
   "login": "edgar-treischl",
   "html_url": "https://github.com/edgar-treischl",
-  "scopes": "gist, repo, workflow",
-  "token": "gho_...zkar"
+  "scopes": "gist, repo, user, workflow",
+  "token": "ghp_...Cmqg"
 } </code></pre>
 </div>
 </div>
@@ -196,80 +379,80 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now that you’ve worked on your project, how do you save your changes and push them to the remote repository? After creating and saving a new file, you need to stage it. Staging tells Git to track the file. You can do this by checking the box in the Git pane. Next, you’ll add a commit message. A commit message is a short description of the changes you’ve made, and it’s good practice to write something meaningful yet concise. Once you’re satisfied with your message, click the “Commit” button to save your changes locally. Finally, you can push your changes to the remote repository on GitHub by clicking the “Push” button. The next image shows these steps in the Git pane.</p>
 <p><img src="plots/07/Fig_0907.png" class="img-fluid"></p>
 <p>Git will inform you with a cryptic message if your push attempt is successful. This message includes the commit hash (which uniquely identifies each commit) and the branch to which the changes were pushed.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> https://github.com/your_username/your_repository.git</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">abc1234..def5678</span>  main <span class="at">-</span><span class="op">&gt;</span> main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> https://github.com/your_username/your_repository.git</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">abc1234..def5678</span>  main <span class="at">-</span><span class="op">&gt;</span> main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Go ahead and inspect your GitHub repository to confirm that the changes were successfully pushed. If the push was successful, the next section will introduce you to the most basic Git commands for working with GitHub. When you click a button in the Git pane, RStudio runs the corresponding Git commands in the background, and learning a few basic commands is all you need to effectively work with Git.</p>
 </section>
 </section>
-<section id="basic-git-commands" class="level2">
-<h2 class="anchored" data-anchor-id="basic-git-commands">Basic Git commands</h2>
+<section id="basic-git-commands" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="basic-git-commands"><span class="header-section-number">7.3</span> Basic Git commands</h2>
 <p>We can skip the initial steps, as we’ve already covered how to initialize a new repository and clone it. Programmatically, you would run:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize a new repository</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init <span class="op">&lt;</span>your repository name<span class="op">&gt;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone a repository</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>git-repo-url<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Use <code>git branch</code> to create a new branch, or add the <code>--list</code> option to view all existing branches.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new branch</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># List all branches</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">--list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Delete a branch with <code>git branch -d &lt;branch-name&gt;</code>, and switch to a different branch using <code>git checkout</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete a branch</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize a new repository</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init <span class="op">&lt;</span>your repository name<span class="op">&gt;</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Switch to a branch</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Add a file to the staging area with <code>git add &lt;file&gt;</code>, or stage all files with <code>git add -A</code>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a file to the staging area</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="op">&lt;</span>file<span class="op">&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Clone a repository</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>git-repo-url<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Use <code>git branch</code> to create a new branch, or add the <code>--list</code> option to view all existing branches.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new branch</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add All files to the staging area</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Commit changes with <code>git commit</code>. The <code>-am</code> option is a shortcut for <code>git add -A</code> followed by <code>git commit -m</code>. Push changes to the remote repository with <code>git push &lt;remote&gt; &lt;branch-name&gt;</code>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Commit changes</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="op">&lt;</span>commit-message<span class="op">&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># List all branches</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">--list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Delete a branch with <code>git branch -d &lt;branch-name&gt;</code>, and switch to a different branch using <code>git checkout</code>.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete a branch</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Push changes to the remote rep</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="op">&lt;</span>remote<span class="op">&gt;</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Keep in mind that if you’re collaborating with others, you’ll need to pull changes from the remote repository. Use the <code>git pull</code> command to fetch and merge changes from the remote repository into your local one. If you’re working on a branch and want to merge it with the main branch, you can use the <code>git merge &lt;branch-name&gt;</code> command.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull changes from the remote rep</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Switch to a branch</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Add a file to the staging area with <code>git add &lt;file&gt;</code>, or stage all files with <code>git add -A</code>.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a file to the staging area</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="op">&lt;</span>file<span class="op">&gt;</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge two branches</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add All files to the staging area</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Commit changes with <code>git commit</code>. The <code>-am</code> option is a shortcut for <code>git add -A</code> followed by <code>git commit -m</code>. Push changes to the remote repository with <code>git push &lt;remote&gt; &lt;branch-name&gt;</code>.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Commit changes</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="op">&lt;</span>commit-message<span class="op">&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Push changes to the remote rep</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="op">&lt;</span>remote<span class="op">&gt;</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Keep in mind that if you’re collaborating with others, you’ll need to pull changes from the remote repository. Use the <code>git pull</code> command to fetch and merge changes from the remote repository into your local one. If you’re working on a branch and want to merge it with the main branch, you can use the <code>git merge &lt;branch-name&gt;</code> command.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull changes from the remote rep</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge two branches</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You might be wondering, do you need all this code if you’re happy with the Git pane? While the pane simplifies common Git operations, using Git commands gives you more control, flexibility, and the ability to manage more complex tasks. For instance, merge conflicts can occur when two branches modify the same part of a file, and Git won’t be able to automatically resolve the conflict. Git commands provide a more detailed understanding of where the conflicts are happening, which is especially useful when the conflict isn’t easy to resolve. So, it’s worth learning the commands, particularly for troubleshooting.</p>
 <p>Use <code>git blame</code> to see who changed what and when, <code>git status</code> to view the working tree status, and <code>git diff</code> to inspect the differences between commits.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show who changed what and when</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> blame file.txt</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Shows the working tree status</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Shows changes between commits</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show who changed what and when</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> blame file.txt</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Shows the working tree status</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Shows changes between commits</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Be cautious when reverting or discarding changes! The <code>git revert</code> command creates a new commit that undoes changes from a previous commit. The <code>git reset</code> command resets the repository to a previous commit. And as a last resort, the <code>git reset --hard</code> command forcefully discards any local changes. Keep in mind, once you discard changes, there’s no way to recover them.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 💀💀💀 </span><span class="al">DANGER</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Revert some existing commits</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert SHA</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset the repository to a previous commit </span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Take care: This will discard any local changes</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset </span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Ultima ratio only</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># A "hard reset": forcefully discard any local changes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 💀💀💀 </span><span class="al">DANGER</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Revert some existing commits</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert SHA</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Reset the repository to a previous commit </span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Take care: This will discard any local changes</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset </span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Ultima ratio only</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># A "hard reset": forcefully discard any local changes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Before attempting to reset, take a look at the commit history in RStudio. The commit history provides a detailed view of what changes were made and when. It’s a powerful tool for inspecting changes, identifying issues, and reverting changes if necessary.</p>
 <p><img src="plots/07/Fig_0908.png" class="img-fluid"></p>
 <p>Finally, here’s one last tool to consider: GitHub Gist. Gist is a service provided by GitHub that allows you to share and store code snippets, text, or other types of files. It not only enables you to share code without creating a full repository, but also lets you embed code snippets in a blog post or website. Gist is an excellent tool for saving your own code snippets that might otherwise get lost or clutter your workspace.</p>
 <p>I even created an R package that allows you to work with GitHub Gist natively from R. The <code>gist</code> package provides a set of functions to manage your GitHub Gists, allowing you to copy, create, and delete gists via the GitHub API. Moreover, it comes with an RStudio addin that allows you to easily create, delete, or copy one of your existing Gists with the click of a button. The next image shows the Gist addin in action.</p>
 <p><img src="plots/07/gistapp.png" class="img-fluid" style="width:55.0%"></p>
-</section>
+
+
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -305,18 +488,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -348,7 +520,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -356,7 +548,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -453,7 +645,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -679,6 +870,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./06_cli.html" class="pagination-link" aria-label="CLI Basics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CLI Basics</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link" aria-label="References">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

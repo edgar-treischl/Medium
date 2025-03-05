@@ -12,6 +12,9 @@ book:
     - 02_master_sql.qmd
     - 03_ggplot2_ext.qmd
     - 04_gist.qmd
+    - 05_cpp.qmd
+    - 06_cli.qmd
+    - 07_GitHub.qmd
     - references.qmd
 
 bibliography: references.bib
