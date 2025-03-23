@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>cli</title>
+<title>6&nbsp; CLI Basics – Medium Articles</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,36 +57,208 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="06_CLI_files/libs/clipboard/clipboard.min.js"></script>
-<script src="06_CLI_files/libs/quarto-html/quarto.js"></script>
-<script src="06_CLI_files/libs/quarto-html/popper.min.js"></script>
-<script src="06_CLI_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="06_CLI_files/libs/quarto-html/anchor.min.js"></script>
-<link href="06_CLI_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="06_CLI_files/libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="06_CLI_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="06_CLI_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="06_CLI_files/libs/bootstrap/bootstrap-973236bd072d72a04ee9cd82dcc9cb29.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./07_GitHub.html" rel="next">
+<link href="./05_cpp.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-e26003cea8cd680ca0c55a263523d882.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-11d96894dd7817e82423dfd1eea0dc7d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+</head><body class="nav-sidebar floating"><div id="progress-bar" style="width: 0%; height:2px; background-color: rgb(89 127 235);; position: fixed; top: 0px; z-index: 2000;"></div>
+
+<script id="progressbar" type="text/javascript">
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const bar = document.querySelector('#progress-bar');
+    const post = document.querySelector('#quarto-content');
+    const html = document.documentElement;
+    
+    const height = post.scrollHeight + post.offsetTop;
+    
+    window.addEventListener('scroll', () => {
+        bar.style.width = (html.scrollTop / (height- html.clientHeight)) * 100 + '%';
+    });
+});
+</script>
 
 
-</head>
-
-<body class="fullcontent">
-
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
 
 
-<section id="cli-basics" class="level1">
-<h1>CLI Basics</h1>
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06_cli.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CLI Basics</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Medium Articles</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01_scan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Create, scan, and correct exams with R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02_master_sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Master SQL with R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03_ggplot2_ext.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Ten additional geoms for ggplot2</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04_gist.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Manage Code Snippets with GitHub Gist</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05_cpp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">C++ Basics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06_cli.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CLI Basics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07_GitHub.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Git(Hub): A Gentle Introduction for R Users</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#echo" id="toc-echo" class="nav-link active" data-scroll-target="#echo"><span class="header-section-number">6.1</span> Echo</a></li>
+  <li><a href="#pwd-and-ls" id="toc-pwd-and-ls" class="nav-link" data-scroll-target="#pwd-and-ls"><span class="header-section-number">6.2</span> Pwd and ls</a></li>
+  <li><a href="#whoami-and-uname" id="toc-whoami-and-uname" class="nav-link" data-scroll-target="#whoami-and-uname"><span class="header-section-number">6.3</span> Whoami and uname</a></li>
+  <li><a href="#curl" id="toc-curl" class="nav-link" data-scroll-target="#curl"><span class="header-section-number">6.4</span> Curl</a></li>
+  <li><a href="#grep-and-wc" id="toc-grep-and-wc" class="nav-link" data-scroll-target="#grep-and-wc"><span class="header-section-number">7</span> Grep and wc</a>
+  <ul class="collapse">
+  <li><a href="#csvlook" id="toc-csvlook" class="nav-link" data-scroll-target="#csvlook"><span class="header-section-number">7.1</span> Csvlook</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">CLI Basics</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <p>The Command Line Interface (CLI) is a powerful tool for interacting with computers and automating tasks. Also known as the terminal, shell, or console (depending on the operating system), the CLI is widely used by system administrators, developers, and power users to perform tasks that are either impossible or inefficient with a Graphical User Interface (GUI).</p>
 <p>In contrast to a GUI—where you might manually copy and paste files—the CLI enables you to automate processes, quickly search for files, and execute complex tasks with greater efficiency.</p>
 <p>In this article, we’ll explore the basics of the Command Line Interface (CLI) and cover essential commands that are particularly useful for data-related tasks. We will also dive into how to redirect command output to a file, count lines, words, and characters within a file, and display a CSV file in a neat, tabular format.</p>
-<section id="echo" class="level2">
-<h2 class="anchored" data-anchor-id="echo">Echo</h2>
+<section id="echo" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="echo"><span class="header-section-number">6.1</span> Echo</h2>
 <p>The <code>echo</code> command is used to print text to the terminal.</p>
 <p>The <code>echo</code> command is used to display text or output to the terminal. It’s often used for printing simple messages or checking the result of a command, making it a versatile tool for both beginners and advanced users.</p>
 <div class="cell">
@@ -112,8 +284,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="pwd-and-ls" class="level2">
-<h2 class="anchored" data-anchor-id="pwd-and-ls">Pwd and ls</h2>
+<section id="pwd-and-ls" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="pwd-and-ls"><span class="header-section-number">6.2</span> Pwd and ls</h2>
 <p>The <code>pwd</code> command is used to print the current working directory. The <code>ls</code> command is used to list the files and directories in the current directory.</p>
 <p>The <code>pwd</code> command prints the current working directory, while the <code>ls</code> command lists the files and directories in the current directory.</p>
 <div class="cell">
@@ -124,17 +296,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>/Users/edgar/Documents/GitHub/Medium
+01_scan.html
 01_scan.qmd
+01_scan_files
+02_master_sql.html
 02_master_sql.qmd
+03_ggplot2_ext.html
 03_ggplot2_ext.qmd
+04_gist.html
 04_gist.qmd
-04_gist_files
+05_cpp.html
 05_cpp.qmd
 05_cpp_files
 06_CLI.html
 06_CLI.qmd
-06_CLI.rmarkdown
 06_CLI_files
+06_cli.rmarkdown
 07_GitHub.qmd
 Medium.Rproj
 _quarto.yml
@@ -144,11 +321,13 @@ data
 docs
 greeting.txt
 ideas
+index.html
 index.qmd
 plots
 progress-bar.html
 references.bib
 references.qmd
+site_libs
 source
 sql_code.txt</code></pre>
 </div>
@@ -158,21 +337,21 @@ sql_code.txt</code></pre>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ls -l: List files and directories in long format, then pipe the output to head</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> <span class="kw">|</span> <span class="fu">head</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>total 624
+<pre><code>total 1192
+-rw-r--r--@  1 edgar  staff  66056 Mar 23 09:38 01_scan.html
 -rw-r--r--@  1 edgar  staff  17025 Feb  4 19:37 01_scan.qmd
+drwxr-xr-x@  3 edgar  staff     96 Mar 23 09:38 01_scan_files
+-rw-r--r--@  1 edgar  staff  55363 Mar 23 09:38 02_master_sql.html
 -rw-r--r--@  1 edgar  staff  11689 Jun  2  2024 02_master_sql.qmd
+-rw-r--r--@  1 edgar  staff  66002 Mar 23 09:38 03_ggplot2_ext.html
 -rw-r--r--@  1 edgar  staff  13722 Jun 29  2024 03_ggplot2_ext.qmd
--rw-r--r--@  1 edgar  staff   3113 Oct 20 10:25 04_gist.qmd
-drwx------   3 edgar  staff     96 Mar  5 07:31 04_gist_files
--rw-r--r--   1 edgar  staff    308 Aug  4  2024 05_cpp.qmd
-drwxr-xr-x@  3 edgar  staff     96 Mar  5 07:31 05_cpp_files
--rw-r--r--@  1 edgar  staff  42883 Feb  9 20:59 06_CLI.html
--rw-r--r--@  1 edgar  staff   8158 Feb  9 20:59 06_CLI.qmd</code></pre>
+-rw-r--r--@  1 edgar  staff  34942 Mar 23 09:38 04_gist.html
+-rw-r--r--@  1 edgar  staff   3113 Oct 20 10:25 04_gist.qmd</code></pre>
 </div>
 </div>
 </section>
-<section id="whoami-and-uname" class="level2">
-<h2 class="anchored" data-anchor-id="whoami-and-uname">Whoami and uname</h2>
+<section id="whoami-and-uname" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="whoami-and-uname"><span class="header-section-number">6.3</span> Whoami and uname</h2>
 <p>The <code>whoami</code> command prints the username of the current user. On the other hand, the <code>uname -a</code> command displays detailed system information, including the operating system, kernel version, and hostname. The -a option stands for “all” and ensures all available information is shown.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># whoami: Print the username of the current user</span></span>
@@ -189,8 +368,8 @@ drwxr-xr-x@  3 edgar  staff     96 Mar  5 07:31 05_cpp_files
 </div>
 </div>
 </section>
-<section id="curl" class="level2">
-<h2 class="anchored" data-anchor-id="curl">Curl</h2>
+<section id="curl" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="curl"><span class="header-section-number">6.4</span> Curl</h2>
 <p>The <code>curl</code> command is used to transfer data to or from a server. It supports a variety of protocols, including HTTP, HTTPS, FTP, and SCP. Commonly, <code>curl</code> is used to download files from the internet, test APIs, and perform other network-related tasks. With its wide array of options and features, <code>curl</code> is a powerful tool. To view available options and get more information, you can use the <code>--help</code> option to display the help message.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># curl: Transfer data to or from a server</span></span>
@@ -275,9 +454,8 @@ For all options use the manual or "--help all".</code></pre>
 </div>
 </div>
 </section>
-</section>
-<section id="grep-and-wc" class="level1">
-<h1>Grep and wc</h1>
+<section id="grep-and-wc" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Grep and wc</h1>
 <p>Suppose we want to count how many chapters a book has. The <code>wc</code> (word count) command is used to count the number of lines, words, and characters in a file or output. To count the number of lines, we can use the <code>-l</code> option. By combining <code>grep</code> with <code>wc</code>, we can count the number of lines that match a specific pattern — in this case, the number of chapters in the book.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># wc: Count the number of lines, words, and characters in a file or output</span></span>
@@ -298,12 +476,12 @@ For all options use the manual or "--help all".</code></pre>
                                  Dload  Upload   Total   Spent    Left  Speed
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-  9  150k    9 14034    0     0  19811      0  0:00:07 --:--:--  0:00:07 19794
-100  150k  100  150k    0     0   142k      0  0:00:01  0:00:01 --:--:--  142k</code></pre>
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100  150k  100  150k    0     0   162k      0 --:--:-- --:--:-- --:--:--  162k</code></pre>
 </div>
 </div>
-<section id="csvlook" class="level2">
-<h2 class="anchored" data-anchor-id="csvlook">Csvlook</h2>
+<section id="csvlook" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="csvlook"><span class="header-section-number">7.1</span> Csvlook</h2>
 <p>The <code>csvlook</code> command is used to display a CSV file in a tabular format. The following command will display the contents of the <code>chapters.txt</code> file in a clean, tabular layout.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># csvlook: Display a CSV file in a tabular format</span></span>
@@ -342,11 +520,12 @@ For all options use the manual or "--help all".</code></pre>
 </div>
 </div>
 <p>In summary, the CLI is a powerful and versatile tool that enables you to perform a wide range of tasks efficiently and effectively. It’s commonly used by system administrators, developers, and power users to accomplish tasks that are often more difficult or time-consuming with a graphical user interface. In this article, we covered several CLI basics, including the <code>echo</code>, <code>pwd</code>, <code>ls</code>, <code>whoami</code>, <code>uname</code>, <code>curl</code>, and <code>grep</code> commands. We also explored how to redirect the output of a command to a file, count lines, words, and characters in a file, and display a CSV file in a neat, tabular format.</p>
+
+
 </section>
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -764,6 +943,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./05_cpp.html" class="pagination-link" aria-label="C++ Basics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">C++ Basics</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./07_GitHub.html" class="pagination-link" aria-label="Git(Hub): A Gentle Introduction for R Users">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Git(Hub): A Gentle Introduction for R Users</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 
 

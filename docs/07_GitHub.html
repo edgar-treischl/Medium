@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -225,8 +245,11 @@ document.addEventListener("DOMContentLoaded", function() {
   <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started"><span class="header-section-number">7.2</span> Getting Started</a>
   <ul class="collapse">
   <li><a href="#install-git" id="toc-install-git" class="nav-link" data-scroll-target="#install-git"><span class="header-section-number">7.2.1</span> Install Git</a></li>
+  <li><a href="#create-a-github-account-and-connect-r-studio" id="toc-create-a-github-account-and-connect-r-studio" class="nav-link" data-scroll-target="#create-a-github-account-and-connect-r-studio"><span class="header-section-number">7.2.2</span> Create a GitHub account and connect R Studio</a></li>
+  <li><a href="#work-with-github-and-r-studio" id="toc-work-with-github-and-r-studio" class="nav-link" data-scroll-target="#work-with-github-and-r-studio"><span class="header-section-number">7.2.3</span> Work with GitHub and R Studio</a></li>
   </ul></li>
   <li><a href="#basic-git-commands" id="toc-basic-git-commands" class="nav-link" data-scroll-target="#basic-git-commands"><span class="header-section-number">7.3</span> Basic Git commands</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">7.4</span> Summary</a></li>
   </ul>
 </nav>
     </div>
@@ -254,9 +277,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <section id="introduction" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">7.1</span> Introduction</h2>
-<p>Git is a powerful version control system to track changes in code over time. It’s an essential tool for sharing work, collaborating with others, and automating repetitive tasks. GitHub (and GitLab) are platforms built around Git that allow developers to host, share, and collaborate on projects. At its core, GitHub serves as a repository for Git-based projects.</p>
-<p>Learning Git can be intimidating, especially for beginners. However, R users have a head start because R packages and RStudio make it easy to work with Git and GitHub. For example, R packages like <code>usethis</code> and <code>devtools</code> provide functions to set up Git, create repositories, and share code. RStudio, on the other hand, offers a Git pane that simplifies common Git operations, such as staging, committing, and pushing changes. If you work with Code on a daily basis there is no doubt, you should consider learning Git.</p>
-<p>For example: Suppose you’ve shared your code on GitHub. While others can download the code, they can also run it directly in their R console. This makes the <code>source_url()</code> function from the <code>devtools</code> package possible, which allows you to execute R code directly from a URL. The next time you update your code, your colleagues can rerun the code to get access the latest version. As the next code chunk demonstrates, <code>pacman.R</code> live in my GitHub account and creates a plot when sourced.</p>
+<p>Git is a version control system to track changes in code over time. It’s also an essential tool for sharing work, collaboration, and automating repetitive tasks. GitHub (GitLab) are platforms built around Git that allow developers to host, share, and collaborate on Git-based projects. Git is best practice when it comes to software development, but unfortunately it has not yet become a standard tool in different academic disciplines which is why this article aims to introduce Git(Hub) in a non-technical fashion.</p>
+<p>Git can be intimidating, especially for beginners. Fortunately, R users have a head start because several R packages and R Studio make it easy to work with Git. For example, the <a href="https://usethis.r-lib.org">usethis</a> package provide functions to setup Git, create repositories, and share code <span class="citation" data-cites="usethis">(<a href="references.html#ref-usethis" role="doc-biblioref">Wickham et al. 2024</a>)</span>. R Studio, on the other hand, offers a Git pane that simplifies common Git operations with a simple click of a button.</p>
+<p>For example: Suppose your code lives on GitHub. While others can download it, they can also run it directly. The next time you update the code, other people only need to rerun it to get access the latest version. The <code>source_url()</code> function from the <a href="https://devtools.r-lib.org">devtools</a> package allows you to execute R code directly from a URL <span class="citation" data-cites="devtools">(<a href="references.html#ref-devtools" role="doc-biblioref">Wickham et al. 2022</a>)</span>. As the next code chunk demonstrates, <code>pacman.R</code> creates a plot when sourced but the code to create this plot lives only in my GitHub account.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Link to GitHub repository</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>link <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"https://raw.githubusercontent.com/"</span>,</span>
@@ -274,21 +297,21 @@ document.addEventListener("DOMContentLoaded", function() {
 </div>
 </div>
 </div>
-<p>Git is an essential tool for any data scientist, and GitHub is a game-changer in many ways. This article introduces Git and GitHub to R users, focusing on how R packages and RStudio make it particularly easy to work with these tools. If you’re not an R user, don’t worry! The concepts and tools introduced here are applicable to any programming language.</p>
-<p>The article is structured as follows: First, we inspect how to set up and use Git and GitHub in RStudio. Then, I’ll cover the most important Git basic with a focus on troubleshooting. Finally, I’ll introduce (GitHub) Gist, a simple way to share code snippets.</p>
+<p>Git is an essential tool for any data scientist and GitHub is a game-changer in many ways. This article introduces Git and GitHub to R users, focusing on how R packages and R Studio make it super easy to work with these tools.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> If you’re not an R user, don’t worry! The concepts are applicable to any programming language and I will highlight some alternatives.</p>
+<p>The article is structured as follows: First, we inspect how to set up and use Git. Then, I’ll cover the most important Git basic with a focus on troubleshooting. Finally, I’ll introduce (GitHub) Gist, a simple way to share code snippets.</p>
 </section>
 <section id="getting-started" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="getting-started"><span class="header-section-number">7.2</span> Getting Started</h2>
-<p>To get started with Git and GitHub, there are three key steps: First, install Git on your local machine. Second, create a GitHub account. Finally, connect RStudio with GitHub.</p>
+<p>To get started with Git(Hub), there are three key steps: (1) Install Git on your local machine. (2) Create a GitHub account and connect R Studio (or a different IDE) with GitHub. (3) Learn how to work with Git and R Studio on a regular basis.</p>
 <section id="install-git" class="level3" data-number="7.2.1">
 <h3 data-number="7.2.1" class="anchored" data-anchor-id="install-git"><span class="header-section-number">7.2.1</span> Install Git</h3>
-<p>Below are the installation instructions for different operating systems:</p>
+<p>Depending on your operating system, follow one of the installation instructions:</p>
 <ul>
-<li>Windows: https://git-scm.com/download/win</li>
-<li>OS X: https://git-scm.com/download/mac</li>
-<li>Debian/Ubuntu: sudo apt-get install git-core</li>
+<li>Windows: <a href="https://git-scm.com/downloads/win" class="uri">https://git-scm.com/downloads/win</a></li>
+<li>OS X: <a href="https://git-scm.com/downloads/mac" class="uri">https://git-scm.com/downloads/mac</a></li>
+<li>Debian/Ubuntu: <a href="https://git-scm.com/downloads/linux" class="uri">https://git-scm.com/downloads/linux</a></li>
 </ul>
-<p>After installing Git, you can check if the installation was successful by typing <code>git --version</code> into the console. It should return the installed version if everything went well.</p>
+<p>After installing Git, insert <code>git --version</code> into the console to check if the installation was successful. It will return the installed version if everything went well.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Go to the console and type:</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -296,17 +319,17 @@ document.addEventListener("DOMContentLoaded", function() {
 <pre><code>git version 2.39.5 (Apple Git-154)</code></pre>
 </div>
 </div>
-<p>Next, you need to introduce yourself to Git. Git needs to know your identity to track changes properly and attribute them to you. You can do this by setting your username and email address with the git config command. You can configure this directly in the console or use the usethis package, which offers additional functionality for setting up your Git environment. We’ll revisit the usethis package shortly.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your user name and email address via bash</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"User Name"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"email@adress.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Next, you need to introduce yourself. Git needs to know your identity to track changes properly and attribute them to you. Set your username and email address with the <code>git config</code> command. You can configure this directly in the console or use the usethis package, which offers additional functionality for setting up your Git environment.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your user name and email address via R</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"Jane Doe"</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">user.email =</span> <span class="st">"jane@example.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set your user name and email address via R</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">use_git_config</span>(<span class="at">user.name =</span> <span class="st">"Edgar Doe"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">user.email =</span> <span class="st">"edgar@example.org"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>To check if the configuration was successful, type git config –global –list in your console.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Or set your user name and email address via the shell</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"User Name"</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"email@adress.com"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Check if the configuration was successful via the git configuration list. It should return your username and email address.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> <span class="at">--list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -319,36 +342,36 @@ user.email=77931249+edgar-treischl@users.noreply.github.com
 core.excludesfile=~/.gitignore</code></pre>
 </div>
 </div>
-<p>Before we continue, let’s familiarize ourselves with some key Git/GitHub terminology. Git can seem a bit overwhelming at first, especially because of its technical jargon. But don’t worry—at this stage, we only need a basic understanding of the most important terms:</p>
+</section>
+<section id="create-a-github-account-and-connect-r-studio" class="level3" data-number="7.2.2">
+<h3 data-number="7.2.2" class="anchored" data-anchor-id="create-a-github-account-and-connect-r-studio"><span class="header-section-number">7.2.2</span> Create a GitHub account and connect R Studio</h3>
+<p>Let’s familiarize with some key terminology before we continue. Because of its technical jargon, Git may seem overwhelming. Don’t worry, we only need a basic understanding of the most important terms:</p>
 <ul>
-<li><strong>Repository</strong>: A folder that contains all the project files.</li>
-<li><strong>Push</strong>: Uploading code (files) to a Git repository.</li>
-<li><strong>Pull</strong>: Downloading code (files) from a Git repository.</li>
+<li><strong>Repository</strong>: A folder that contains all project files.</li>
+<li><strong>Push</strong>: Means to upload code (or files) to a Git repository.</li>
+<li><strong>Pull</strong>: Means to retrieve code (or files) from a Git repository.</li>
 <li><strong>Commit</strong>: A snapshot of a repository at a specific point in time.</li>
-<li><strong>Branch</strong>: A separate version of the repository used to test new features.</li>
+<li><strong>Branch</strong>: A separate version of the repository, for example, to test new features.</li>
 <li><strong>Merge</strong>: Combining changes from two branches into one.</li>
 <li><strong>Merge conflicts</strong>: Occur when two branches modify the same part of a file, and Git cannot automatically determine which version is correct.</li>
 <li><strong>Fork</strong>: A copy of another repository, typically used to make changes to someone else’s project.</li>
 <li><strong>Pull request</strong>: A way to propose changes to a repository.</li>
 </ul>
-<p>Certainly, pushing and pulling code, committing changes, and understanding other Git concepts may not come naturally at first. However, we’ll gain a deeper understanding by putting these concepts into practice. Let’s move on and create a free GitHub account:</p>
-<ul>
-<li>Windows: https://github.com/</li>
-</ul>
-<p>After creating your GitHub account, you’ll need to connect GitHub and RStudio using a personal access token (PAT). It’s important to store this PAT, as it will allow RStudio to authenticate with GitHub.</p>
-<p>The <code>usethis</code> package makes this process easy. Using the <code>create_github_token()</code> function, a browser window will open, directing you to the GitHub token creation page (https://github.com/settings/tokens). GitHub provides various options for customizing your token. You can set it to expire after a certain time, restrict it to specific repositories, or limit it to certain actions. For now, simply create a token with the default settings.</p>
+<p>Certainly, pushing and pulling code, committing changes, and understanding Git concepts does not come naturally. However, we’ll gain a deeper understanding by putting these concepts into practice. To this end, create a free GitHub account first:</p>
+<p><a href="https://github.com/" class="uri">https://github.com/</a></p>
+<p>After creating a GitHub account, you can connect GitHub and R Studio with a personal access token (PAT). The <code>usethis</code> package makes this step convenient. Execute the <code>create_github_token()</code> function. A browser window will open, directing you to the GitHub page where you can create a token (<a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a>). GitHub provides various options for customizing a token. You can set it to expire after a certain time, restrict it to specific repositories, or limit it to certain actions. If you create a token for the very first time, just stick to the default settings and copy it.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The create_github_token() function will open a browser window to create a token</span></span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The create_github_token() function opens the browser and show where to create the token</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">create_github_token</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The <code>set_github_pat()</code> function from the <code>credentials</code> package will help you connect to GitHub and store your PAT. Run the function and paste your token into the menu that pops up.</p>
+<p>The <code>set_github_pat()</code> function from the <code>credentials</code> package helps us connect to GitHub and stores the PAT <span class="citation" data-cites="credentials">(<a href="references.html#ref-credentials" role="doc-biblioref">Ooms 2024</a>)</span>. Run the function and paste the copied token into the menu that pops up.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The set_github_pat() function will store the token</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>credentials<span class="sc">::</span><span class="fu">set_github_pat</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Finally, check if R Studio is connected to GitHub using the <code>gh</code> package. The <code>gh_whoami()</code> function will display your GitHub identity.</p>
+<p>Finally, check if R Studio can authenticate to GitHub using the <code>gh</code> package <span class="citation" data-cites="gh">(<a href="references.html#ref-gh" role="doc-biblioref">Bryan and Wickham 2024</a>)</span>. The <code>gh_whoami()</code> function should reveal your GitHub identity.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Actually, whoami will show you who you are on GitHub ...</span></span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Who am I? On GitHub ...</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>gh<span class="sc">::</span><span class="fu">gh_whoami</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>{
@@ -360,33 +383,61 @@ core.excludesfile=~/.gitignore</code></pre>
 } </code></pre>
 </div>
 </div>
-<p>If RStudio recognizes your GitHub identity, you’re all set! The steps we just covered only need to be completed once. Now, let’s move on to using Git and GitHub in RStudio on a daily basis.</p>
-<p>First, go back to the GitHub website and create a new repository. This will be just a test repository, so don’t worry too much about the options available during setup. You can choose whether to make it public or private, add a README file (for future users), or include a license. For now, just create the repository without any additional options.</p>
-<p><img src="plots/07/Fig_0903.png" class="img-fluid"></p>
-<p>After creating the repository, you’ll see the quick setup guide. This guide shows you how to connect your local repository to the remote repository on GitHub, but for now, we’ll connect using the https link. Simply copy the link and return to RStudio.</p>
-<p><img src="plots/07/Fig_0904.png" class="img-fluid"></p>
-<p>To connect your local repository with the remote repository on GitHub, we need to clone it. Cloning essentially means copying the remote repository to your local machine. RStudio makes this process straightforward using the Project Wizard:</p>
+<p>That’s it! If R Studio recognizes your GitHub identity, you’re all set.</p>
+</section>
+<section id="work-with-github-and-r-studio" class="level3" data-number="7.2.3">
+<h3 data-number="7.2.3" class="anchored" data-anchor-id="work-with-github-and-r-studio"><span class="header-section-number">7.2.3</span> Work with GitHub and R Studio</h3>
+<p>The steps we just covered only need to be completed once. Let’s move on and learn how to use Git. First, go back to the GitHub website and create a new repository. This will be just a test repository, so don’t worry too much about the options available during the setup step. You can choose whether to make it public or private, add a README file, or include a license. For the sake of simplicity, just create the repository with the default settings. Add a repository name and create a public repository.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plots/07/Fig_0903.png" class="img-fluid figure-img"></p>
+<figcaption>Source: Treischl(2023): Chapter 9</figcaption>
+</figure>
+</div>
+<p>After creating a new repository, you’ll see the <em>quick setup guide</em>. This guide shows you how to connect your local repository to the remote repository on GitHub by providing the SSH and HTTPS link. You may use one of the links to clone the remote repository, but since you have created a PAT, we’ll connect using the <em>HTTPS</em> link. Copy the URL and return to R Studio.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plots/07/Fig_0904.png" class="img-fluid figure-img"></p>
+<figcaption>Source: Treischl(2023): Chapter 9</figcaption>
+</figure>
+</div>
+<p>To connect a local with the remote repository on GitHub, we need to clone it. Cloning essentially means copying the remote repository to your local machine. R Studio makes this process straightforward using the Project Wizard:</p>
 <ol type="1">
-<li>Create a new project in RStudio and click “Next.”</li>
+<li>Create a new project in R Studio and click “Next.”</li>
 <li>Select “Version Control.”</li>
 <li>Choose “Git.”</li>
-<li>Paste the repository URL into the corresponding field to create the new project. The next image shows the final step only.</li>
+<li>Paste the repository URL into the corresponding field to clone the project. The next image shows the final step only.</li>
 </ol>
-<p><img src="plots/07/Fig_0905.png" class="img-fluid" style="width:55.0%"></p>
-<p>R Studio will clone the repository, and the Git pane should appear in the upper right corner. If the pane doesn’t show up automatically, try restarting RStudio and checking your settings. The Git pane provides easy access to basic Git commands and visually displays the status of your repository. Initially, your Git pane will be empty, but as you begin working on your project, RStudio will show the differences between your local and remote repositories. The next image illustrates the Git pane after you’ve made changes to your project.</p>
-<p><img src="plots/07/Fig_0906.png" class="img-fluid"></p>
-<p>First, create a new R script, insert some code, and save the script. The new file should appear in the Git pane, marked with a yellow question mark. This indicates that the file isn’t being tracked yet. Once you stage the file, it will be marked with a teal “A” (for added file). We’ll explore what this means shortly. As highlighted in the last image, the same happens if you modify, delete, or rename a file.</p>
-<p>Now that you’ve worked on your project, how do you save your changes and push them to the remote repository? After creating and saving a new file, you need to stage it. Staging tells Git to track the file. You can do this by checking the box in the Git pane. Next, you’ll add a commit message. A commit message is a short description of the changes you’ve made, and it’s good practice to write something meaningful yet concise. Once you’re satisfied with your message, click the “Commit” button to save your changes locally. Finally, you can push your changes to the remote repository on GitHub by clicking the “Push” button. The next image shows these steps in the Git pane.</p>
-<p><img src="plots/07/Fig_0907.png" class="img-fluid"></p>
-<p>Git will inform you with a cryptic message if your push attempt is successful. This message includes the commit hash (which uniquely identifies each commit) and the branch to which the changes were pushed.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plots/07/Fig_0905.png" class="img-fluid figure-img" style="width:55.0%"></p>
+<figcaption>Source: Treischl(2023): Chapter 9</figcaption>
+</figure>
+</div>
+<p>The <em>Git pane</em> should appear in the upper right corner after R Studio has cloned the repository. If the pane doesn’t show up automatically, restart R Studio and check the Git settings. The Git pane provides easy access to basic Git commands and visually displays the status of the repository. Initially, the Git pane will be empty, but when you start working on your project, R Studio will show the differences between your local and remote repositories there.</p>
+<p>For example, create a new R script, insert some code, and save the script. The new file should appear in the Git pane, marked with a yellow question mark. This indicates that the file isn’t being <em>tracked</em> yet. Once you stage the file, it will be marked with a teal “A” (for <em>added</em>). We’ll explore how to do this shortly. As highlighted in the next image, the same happens if you <em>modify</em>, <em>delete</em>, or <em>rename</em> a file.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plots/07/Fig_0906.png" class="img-fluid figure-img"></p>
+<figcaption>Source: Treischl(2023): Chapter 9</figcaption>
+</figure>
+</div>
+<p>Now that we’ve worked on a project, how do we save changes and push them to the remote repository? After creating and saving a new file, we need to <em>stage</em> it. Staging tells Git to track the file. We can do this by checking the box in the Git pane. Next, we must add a <em>commit message</em>. A commit message is a short description of the changes that we’ve made, and it’s good practice to write something meaningful yet concise. Once we’re satisfied with the message, click the “commit” button to save the changes locally. Finally, we can <em>push</em> changes to the remote repository by clicking the corresponding push button. The next image shows these steps in the Git pane.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plots/07/Fig_0907.png" class="img-fluid figure-img"></p>
+<figcaption>Source: Treischl(2023): Chapter 9</figcaption>
+</figure>
+</div>
+<p>Git informs us with a cryptic message if attempt to push the files was (not) successful. This message includes the <em>commit hash</em> (which uniquely identifies each commit) and the branch to which the changes were made. You may see something like this if the push was successful:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">To</span> https://github.com/your_username/your_repository.git</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>   <span class="ex">abc1234..def5678</span>  main <span class="at">-</span><span class="op">&gt;</span> main</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Go ahead and inspect your GitHub repository to confirm that the changes were successfully pushed. If the push was successful, the next section will introduce you to the most basic Git commands for working with GitHub. When you click a button in the Git pane, RStudio runs the corresponding Git commands in the background, and learning a few basic commands is all you need to effectively work with Git.</p>
+<p>Go ahead and inspect the GitHub repository to confirm that the changes were made. What shall we do if the push was not successful? The Git pane in R Studio is a great tool for beginners, but it’s also important to understand what’s happening behind the scene and how to troubleshoot common issues. To this end, the next section introduces the most basic Git commands for working with GitHub. When you click a button in the Git pane, R Studio runs the corresponding Git commands in the background, and learning a few basic is all we need to effectively work with Git.</p>
 </section>
 </section>
 <section id="basic-git-commands" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="basic-git-commands"><span class="header-section-number">7.3</span> Basic Git commands</h2>
-<p>We can skip the initial steps, as we’ve already covered how to initialize a new repository and clone it. Programmatically, you would run:</p>
+<p>We could skip the initial steps, as we’ve already covered how to initialize a new repository and clone it. Programmatically, we would run:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize a new repository</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init <span class="op">&lt;</span>your repository name<span class="op">&gt;</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -398,7 +449,7 @@ core.excludesfile=~/.gitignore</code></pre>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># List all branches</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">--list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Delete a branch with <code>git branch -d &lt;branch-name&gt;</code>, and switch to a different branch using <code>git checkout</code>.</p>
+<p>Delete a branch with <code>git branch -d &lt;branch-name&gt;</code>; switch to a different branch using <code>git checkout</code>.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Delete a branch</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -410,21 +461,21 @@ core.excludesfile=~/.gitignore</code></pre>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Add All files to the staging area</span></span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add <span class="at">-A</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Commit changes with <code>git commit</code>. The <code>-am</code> option is a shortcut for <code>git add -A</code> followed by <code>git commit -m</code>. Push changes to the remote repository with <code>git push &lt;remote&gt; &lt;branch-name&gt;</code>.</p>
+<p>Commit changes with <code>git commit</code>. The <code>-am</code> option is a shortcut for <code>git add -A</code> followed by <code>git commit -m</code>. Push changes to the remote repository with <code>git push origin &lt;branch-name&gt;</code>.</p>
 <div class="sourceCode" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Commit changes</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-am</span> <span class="op">&lt;</span>commit-message<span class="op">&gt;</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Push changes to the remote rep</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push <span class="op">&lt;</span>remote<span class="op">&gt;</span> <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Keep in mind that if you’re collaborating with others, you’ll need to pull changes from the remote repository. Use the <code>git pull</code> command to fetch and merge changes from the remote repository into your local one. If you’re working on a branch and want to merge it with the main branch, you can use the <code>git merge &lt;branch-name&gt;</code> command.</p>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Keep in mind that you’ll need to pull changes from the remote repository if you’re collaborating with others. Use the <code>git pull</code> command to fetch and merge changes from the remote repository into your local one. If you’re working on a branch and want to merge it with the main branch, you can use the <code>git merge &lt;branch-name&gt;</code> command.</p>
 <div class="sourceCode" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pull changes from the remote rep</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> pull</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge two branches</span></span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge <span class="op">&lt;</span>branch-name<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You might be wondering, do you need all this code if you’re happy with the Git pane? While the pane simplifies common Git operations, using Git commands gives you more control, flexibility, and the ability to manage more complex tasks. For instance, merge conflicts can occur when two branches modify the same part of a file, and Git won’t be able to automatically resolve the conflict. Git commands provide a more detailed understanding of where the conflicts are happening, which is especially useful when the conflict isn’t easy to resolve. So, it’s worth learning the commands, particularly for troubleshooting.</p>
+<p>Do you need all this Git code if you’re happy with the Git pane? While the pane simplifies common Git operations, using Git commands gives you more control, flexibility, and the ability to manage more complex tasks. For instance, merge conflicts can occur when two branches modify the same part of a file, and Git won’t be able to automatically resolve the conflict. Git commands provide a more detailed understanding of the conflicts, which is especially useful when the conflict isn’t easy to resolve. So, it’s worth learning the commands, particularly for troubleshooting.</p>
 <p>Use <code>git blame</code> to see who changed what and when, <code>git status</code> to view the working tree status, and <code>git diff</code> to inspect the differences between commits.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show who changed what and when</span></span>
+<div class="sourceCode" id="cb19"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Who is to blame?</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> blame file.txt</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Shows the working tree status</span></span>
@@ -432,7 +483,7 @@ core.excludesfile=~/.gitignore</code></pre>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Shows changes between commits</span></span>
 <span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> diff</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Be cautious when reverting or discarding changes! The <code>git revert</code> command creates a new commit that undoes changes from a previous commit. The <code>git reset</code> command resets the repository to a previous commit. And as a last resort, the <code>git reset --hard</code> command forcefully discards any local changes. Keep in mind, once you discard changes, there’s no way to recover them.</p>
+<p>Be cautious when reverting or discarding changes! The <code>git revert</code> command creates a new commit that undoes changes from a previous commit. The <code>git reset</code> command resets the repository to a previous commit. And as the last resort, the <code>git reset --hard</code> command forcefully discards any local changes. Keep in mind, once you discard changes, there’s no way to recover them.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 💀💀💀 </span><span class="al">DANGER</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Revert some existing commits</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> revert SHA</span>
@@ -443,13 +494,54 @@ core.excludesfile=~/.gitignore</code></pre>
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Ultima ratio only</span></span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># A "hard reset": forcefully discard any local changes</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Before attempting to reset, take a look at the commit history in RStudio. The commit history provides a detailed view of what changes were made and when. It’s a powerful tool for inspecting changes, identifying issues, and reverting changes if necessary.</p>
-<p><img src="plots/07/Fig_0908.png" class="img-fluid"></p>
-<p>Finally, here’s one last tool to consider: GitHub Gist. Gist is a service provided by GitHub that allows you to share and store code snippets, text, or other types of files. It not only enables you to share code without creating a full repository, but also lets you embed code snippets in a blog post or website. Gist is an excellent tool for saving your own code snippets that might otherwise get lost or clutter your workspace.</p>
-<p>I even created an R package that allows you to work with GitHub Gist natively from R. The <code>gist</code> package provides a set of functions to manage your GitHub Gists, allowing you to copy, create, and delete gists via the GitHub API. Moreover, it comes with an RStudio addin that allows you to easily create, delete, or copy one of your existing Gists with the click of a button. The next image shows the Gist addin in action.</p>
-<p><img src="plots/07/gistapp.png" class="img-fluid" style="width:55.0%"></p>
+<p>Before attempting to reset, take a look at the commit history in R Studio. The commit history provides a detailed view of what changes were made and when. It’s a powerful tool for inspecting changes, identifying issues, and reverting changes if necessary.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plots/07/Fig_0908.png" class="img-fluid figure-img"></p>
+<figcaption>Source: Treischl(2023): Chapter 9</figcaption>
+</figure>
+</div>
+</section>
+<section id="summary" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="summary"><span class="header-section-number">7.4</span> Summary</h2>
+<p>This article introduced Git and GitHub to R users, focusing on how R packages and R Studio make it super easy to work with these tools. We covered the basic steps to set up Git, create a GitHub account, and connect R Studio with GitHub. We also learned how to work with Git and R Studio on a regular basis. The Git pane in R Studio simplifies common Git operations, but it’s also important to understand what’s happening behind the scenes and how to troubleshoot common issues. We introduced the most basic Git commands for working with GitHub, which provide more control to manage more complex tasks. Consider reading the freely available <a href="https://git-scm.com/book/de/v2">Pro Git</a> written by <em>Scott Chacon</em> and <em>Ben Straub</em> for a more in-depth understanding of Git.</p>
+<p>What’s next? This article only scratches the surface of Git(Hub). There are many more advanced features and best practices to explore, but let me outline at least that you have now have a working CI/CD pipeline at your disposal. For example, wouldn’t it be nice to automatically run tests, check code quality, and deploy the website of an R package? This is where continuous integration and continuous deployment (CI/CD) come into play. They automate the process of testing, building, and deploying code. <em>GitHub Actions</em> and the <code>usethis</code> package make it easy to set up a CI/CD pipeline for R packages. The next code chunk demonstrates how to set up a GitHub Action and consider the <a href="https://github.com/features/actions">GitHub website</a> for more information.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up a GitHub Action</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">use_github_action</span>()</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Which action do you want to add? (0 to exit)</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># (See &lt;https://github.com/r-lib/actions/tree/v2/examples&gt; for other options) </span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1: check-standard: Run `R CMD check` on Linux, macOS, and Windows</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 2: test-coverage: Compute test coverage and report to https://about.codecov.io</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3: pr-commands: Add /document and /style commands for pull requests</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-gh" class="csl-entry" role="listitem">
+Bryan, Jennifer, and Hadley Wickham. 2024. <em>Gh: ’GitHub’ ’API’</em>. <a href="https://CRAN.R-project.org/package=gh">https://CRAN.R-project.org/package=gh</a>.
+</div>
+<div id="ref-credentials" class="csl-entry" role="listitem">
+Ooms, Jeroen. 2024. <em>Credentials: Tools for Managing SSH and Git Credentials</em>. <a href="https://CRAN.R-project.org/package=credentials">https://CRAN.R-project.org/package=credentials</a>.
+</div>
+<div id="ref-treischl" class="csl-entry" role="listitem">
+Treischl, Edgar J. 2023. <em>Practice r: An Interactive Textbook</em>. De Gruyter Oldenbourg.
+</div>
+<div id="ref-usethis" class="csl-entry" role="listitem">
+Wickham, Hadley, Jennifer Bryan, Malcolm Barrett, and Andy Teucher. 2024. <em>Usethis: Automate Package and Project Setup</em>. <a href="https://CRAN.R-project.org/package=usethis">https://CRAN.R-project.org/package=usethis</a>.
+</div>
+<div id="ref-devtools" class="csl-entry" role="listitem">
+Wickham, Hadley, Jim Hester, Winston Chang, and Jennifer Bryan. 2022. <em>Devtools: Tools to Make Developing r Packages Easier</em>. <a href="https://CRAN.R-project.org/package=devtools">https://CRAN.R-project.org/package=devtools</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>This article relies on images from <span class="citation" data-cites="treischl">(<a href="references.html#ref-treischl" role="doc-biblioref">Treischl 2023</a>)</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
