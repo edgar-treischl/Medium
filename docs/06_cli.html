@@ -301,16 +301,14 @@ document.addEventListener("DOMContentLoaded", function() {
 01_scan_files
 02_master_sql.html
 02_master_sql.qmd
+02_master_sql_files
 03_ggplot2_ext.html
 03_ggplot2_ext.qmd
 04_gist.html
 04_gist.qmd
 05_cpp.html
 05_cpp.qmd
-05_cpp_files
-06_CLI.html
 06_CLI.qmd
-06_CLI_files
 06_cli.rmarkdown
 07_GitHub.qmd
 Medium.Rproj
@@ -327,6 +325,7 @@ plots
 progress-bar.html
 references.bib
 references.qmd
+references_files
 site_libs
 source
 sql_code.txt</code></pre>
@@ -337,16 +336,16 @@ sql_code.txt</code></pre>
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ls -l: List files and directories in long format, then pipe the output to head</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-l</span> <span class="kw">|</span> <span class="fu">head</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>total 1192
--rw-r--r--@  1 edgar  staff  66056 Mar 23 09:38 01_scan.html
+<pre><code>total 1112
+-rw-r--r--@  1 edgar  staff  66056 Mar 23 10:50 01_scan.html
 -rw-r--r--@  1 edgar  staff  17025 Feb  4 19:37 01_scan.qmd
-drwxr-xr-x@  3 edgar  staff     96 Mar 23 09:38 01_scan_files
--rw-r--r--@  1 edgar  staff  55363 Mar 23 09:38 02_master_sql.html
+drwxr-xr-x@  3 edgar  staff     96 Mar 23 10:51 01_scan_files
+-rw-r--r--@  1 edgar  staff  55363 Mar 23 10:50 02_master_sql.html
 -rw-r--r--@  1 edgar  staff  11689 Jun  2  2024 02_master_sql.qmd
--rw-r--r--@  1 edgar  staff  66002 Mar 23 09:38 03_ggplot2_ext.html
+drwx------   3 edgar  staff     96 Mar 23 10:50 02_master_sql_files
+-rw-r--r--@  1 edgar  staff  66002 Mar 23 10:51 03_ggplot2_ext.html
 -rw-r--r--@  1 edgar  staff  13722 Jun 29  2024 03_ggplot2_ext.qmd
--rw-r--r--@  1 edgar  staff  34942 Mar 23 09:38 04_gist.html
--rw-r--r--@  1 edgar  staff   3113 Oct 20 10:25 04_gist.qmd</code></pre>
+-rw-r--r--@  1 edgar  staff  34942 Mar 23 10:51 04_gist.html</code></pre>
 </div>
 </div>
 </section>
@@ -477,7 +476,7 @@ For all options use the manual or "--help all".</code></pre>
 
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-100  150k  100  150k    0     0   162k      0 --:--:-- --:--:-- --:--:--  162k</code></pre>
+100  150k  100  150k    0     0   159k      0 --:--:-- --:--:-- --:--:--  159k</code></pre>
 </div>
 </div>
 <section id="csvlook" class="level2" data-number="7.1">
