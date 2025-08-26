@@ -92,14 +92,14 @@ Certainly, pushing and pulling code, committing changes, and understanding Git c
 After creating a GitHub account, you can connect GitHub and RStudio with a personal access token (PAT). The `usethis` package makes this step convenient. Execute the `create_github_token()` function. A browser window will open, directing you to the GitHub page where you can create a token (<https://github.com/settings/tokens>). GitHub provides various options for customizing a token. You can set it to expire after a certain time, restrict it to specific repositories, or limit it to certain actions. If you create a token for the very first time, just stick to the default settings and copy it.
 
 ```{r, eval=FALSE}
-# The create_github_token() function opens the browser and show where to create the token
+# The create_github_token() function opens the browser and shows where to create the token
 usethis::create_github_token()
 ```
 
 The `set_github_pat()` function from the `credentials` package helps us connect to GitHub and stores the PAT [@credentials]. Run the function and paste the copied token into the menu that pops up.
 
 ```{r, eval=FALSE}
-#The set_github_pat() function will store the token
+#The set_github_pat() function stores the token
 credentials::set_github_pat()
 ```
 
@@ -256,7 +256,7 @@ What's next? This article only scratches the surface of Git(Hub). There are many
 
 
 ```{r, eval=FALSE}
-# Set up a GitHub Action
+# Use a GitHub Action
 usethis::use_github_action()
 
 # Which action do you want to add? (0 to exit)
